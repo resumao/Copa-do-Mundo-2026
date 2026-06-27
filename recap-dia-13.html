@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ronaldo entra para a história e a defesa da Inglaterra acende o alerta — Resumo do Dia 13</title>
+<style>
+  /* ---------- Fontes (com fallback robusto p/ visualizadores offline) ---------- */
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root{
+    --night:#0b1220;
+    --night-2:#111b2e;
+    --card:#16223a;
+    --line:#26344f;
+    --pitch:#3ddc84;
+    --pitch-dim:#27a866;
+    --gold:#f2c14e;
+    --ink:#eaf1ff;
+    --muted:#9fb0cc;
+    --red:#ff5d5d;
+    --display:'Oswald','Arial Narrow',Impact,sans-serif;
+    --body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--night);
+    color:var(--ink);
+    font-family:var(--body);
+    line-height:1.65;
+    font-size:17px;
+  }
+  a{color:var(--pitch);text-decoration:none;}
+
+  /* ---------- Nav ---------- */
+  .nav{
+    position:-webkit-sticky;
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(11,18,32,0.92);
+    border-bottom:1px solid var(--line);
+    -webkit-backdrop-filter:blur(8px);
+    backdrop-filter:blur(8px);
+  }
+  .nav-inner{
+    max-width:1040px;
+    margin:0 auto;
+    padding:12px 22px;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:10px 18px;
+  }
+  .nav-brand{
+    font-family:var(--display);
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-size:14px;
+    color:var(--gold);
+    margin-right:auto;
+  }
+  .nav-brand b{color:var(--pitch);}
+  .nav a.nav-link{
+    font-family:var(--display);
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    font-size:13px;
+    font-weight:500;
+    color:var(--muted);
+    border-bottom:2px solid transparent;
+    padding-bottom:2px;
+  }
+  .nav a.nav-link:hover{color:var(--ink);border-bottom-color:var(--pitch);}
+
+  /* ---------- Layout ---------- */
+  .wrap{max-width:1040px;margin:0 auto;padding:0 22px;}
+  section{padding:54px 0;border-top:1px solid var(--line);}
+  section:first-of-type{border-top:none;}
+
+  .eyebrow{
+    font-family:var(--display);
+    text-transform:uppercase;
+    letter-spacing:.22em;
+    font-size:12px;
+    color:var(--pitch);
+    margin:0 0 14px;
+  }
+  h1,h2,h3{font-family:var(--display);line-height:1.05;margin:0;}
+  h2{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:.01em;margin-bottom:20px;}
+  h3{font-size:22px;font-weight:600;color:var(--gold);margin:30px 0 10px;}
+  p{margin:0 0 18px;color:#dbe5f5;}
+  .lead{font-size:19px;color:var(--ink);}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:64px 0 56px;
+    background:
+      radial-gradient(900px 380px at 78% -10%, rgba(61,220,132,0.16), transparent 60%),
+      radial-gradient(700px 360px at 10% 0%, rgba(242,193,78,0.12), transparent 60%),
+      linear-gradient(180deg,var(--night-2),var(--night));
+  }
+  .hero .kicker{
+    display:inline-block;
+    font-family:var(--display);
+    text-transform:uppercase;
+    letter-spacing:.16em;
+    font-size:13px;
+    font-weight:600;
+    color:var(--night);
+    background:var(--gold);
+    padding:5px 12px;
+    border-radius:3px;
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:clamp(34px,7vw,68px);
+    font-weight:700;
+    letter-spacing:.005em;
+    margin-bottom:18px;
+  }
+  .hero h1 .hl{color:var(--pitch);}
+  .hero h1 .gl{color:var(--gold);}
+  .hero .sub{font-size:19px;color:var(--muted);max-width:760px;}
+  .hero .meta{
+    margin-top:22px;
+    font-family:var(--display);
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    font-size:13px;
+    color:var(--muted);
+  }
+  .hero .source{
+    display:inline-block;
+    margin-top:18px;
+    padding-top:14px;
+    border-top:1px solid var(--line);
+    font-family:var(--display);
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    font-size:13px;
+    color:var(--ink);
+  }
+  .hero .source b{color:var(--pitch);font-weight:600;}
+
+  /* ---------- Placar ---------- */
+  .scoreboard{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:14px;
+    margin-top:10px;
+  }
+  .match{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:16px 18px;
+    border-left:4px solid var(--pitch-dim);
+  }
+  .match .tag{
+    font-family:var(--display);
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    font-size:11px;
+    color:var(--muted);
+    margin-bottom:12px;
+  }
+  .match .tag b{color:var(--gold);font-weight:600;}
+  .row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;}
+  .row .team{font-weight:600;font-size:18px;}
+  .row .pts{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:22px;
+    min-width:30px;
+    text-align:right;
+  }
+  .row.win .team,.row.win .pts{color:var(--pitch);}
+  .row.draw .team,.row.draw .pts{color:var(--gold);}
+
+  /* ---------- Destaque (callout) ---------- */
+  .callout{
+    background:linear-gradient(180deg,rgba(242,193,78,0.10),rgba(242,193,78,0.03));
+    border:1px solid rgba(242,193,78,0.35);
+    border-radius:12px;
+    padding:24px 26px;
+    margin:26px 0;
+  }
+  .callout .label{
+    font-family:var(--display);
+    text-transform:uppercase;
+    letter-spacing:.18em;
+    font-size:12px;
+    color:var(--gold);
+    margin-bottom:8px;
+  }
+  .callout p:last-child{margin-bottom:0;}
+
+  /* ---------- Lista de craques ---------- */
+  .scorers{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:4px 0 22px;
+  }
+  .chip{
+    font-family:var(--display);
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    font-size:13px;
+    font-weight:500;
+    padding:6px 12px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    color:var(--ink);
+    background:var(--night-2);
+  }
+  .chip b{color:var(--gold);font-weight:700;margin-left:6px;}
+  .chip.lead-chip{border-color:rgba(61,220,132,0.5);}
+  .chip.lead-chip b{color:var(--pitch);}
+
+  /* ---------- Stats strip ---------- */
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+    gap:14px;
+    margin:24px 0;
+  }
+  .stat{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:18px;
+    text-align:center;
+  }
+  .stat .num{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:38px;
+    line-height:1;
+    color:var(--pitch);
+  }
+  .stat .num.gold{color:var(--gold);}
+  .stat .cap{
+    font-size:13px;
+    color:var(--muted);
+    margin-top:8px;
+  }
+
+  /* ---------- Agenda ---------- */
+  .fixtures{list-style:none;margin:14px 0 0;padding:0;}
+  .fixtures li{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 14px;
+    align-items:baseline;
+    padding:14px 0;
+    border-top:1px solid var(--line);
+  }
+  .fixtures li:first-child{border-top:none;}
+  .fixtures .grp{
+    font-family:var(--display);
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    font-size:12px;
+    color:var(--gold);
+    min-width:74px;
+  }
+  .fixtures .game{font-weight:600;font-size:17px;flex:1;min-width:200px;}
+  .fixtures .time{font-family:var(--display);letter-spacing:.04em;color:var(--muted);font-size:14px;}
+
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.show{opacity:1;transform:none;}
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:30px 0 50px;
+    color:var(--muted);
+    font-size:13px;
+    text-align:center;
+  }
+  footer .dot{color:var(--pitch);}
+
+  @media (max-width:560px){
+    body{font-size:16px;}
+    section{padding:42px 0;}
+    .nav-brand{margin-right:0;width:100%;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .reveal{transition:none;opacity:1;transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">Copa do Mundo 2026 · <b>Dia 13</b></div>
+    <a class="nav-link" href="#placar">Placar</a>
+    <a class="nav-link" href="#astros">Os astros</a>
+    <a class="nav-link" href="#inglaterra">Inglaterra</a>
+    <a class="nav-link" href="#var">VAR</a>
+    <a class="nav-link" href="#dia14">Dia 14</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">Resumo do Dia 13 · 24 de junho</span>
+    <h1>Ronaldo <span class="hl">entra para a história</span> — e a defesa da <span class="gl">Inglaterra acende o alerta</span></h1>
+    <p class="sub">Aos 41 anos, Cristiano vira o maior artilheiro de Portugal em Copas e o primeiro a marcar em seis Mundiais. A Inglaterra teve a bola, mas não o gol — e expôs fragilidades atrás. A Colômbia carimba a vaga.</p>
+    <div class="meta">Ronaldo faz 2 · Inglaterra para na muralha de Queiroz · Croácia respira · Colômbia classificada</div>
+    <div class="source">Fonte · <b>The Athletic</b> · James Horncastle</div>
+  </div>
+</header>
+
+<section id="placar">
+  <div class="wrap reveal">
+    <p class="eyebrow">Resultados — Terça, 24 de junho</p>
+    <h2>O placar do dia</h2>
+    <p class="lead">Portugal goleia com dois de Ronaldo, a Inglaterra empata sem gols com Gana num 0 a 0 raro neste torneio, a Croácia bate o Panamá no detalhe e a Colômbia garante a classificação batendo a RD Congo.</p>
+    <div class="scoreboard">
+      <div class="match">
+        <div class="tag"><b>Grupo K</b> · Houston</div>
+        <div class="row win"><span class="team">Portugal</span><span class="pts">5</span></div>
+        <div class="row"><span class="team">Uzbequistão</span><span class="pts">0</span></div>
+      </div>
+      <div class="match">
+        <div class="tag"><b>Grupo L</b> · Boston</div>
+        <div class="row draw"><span class="team">Inglaterra</span><span class="pts">0</span></div>
+        <div class="row draw"><span class="team">Gana</span><span class="pts">0</span></div>
+      </div>
+      <div class="match">
+        <div class="tag"><b>Grupo L</b></div>
+        <div class="row"><span class="team">Panamá</span><span class="pts">0</span></div>
+        <div class="row win"><span class="team">Croácia</span><span class="pts">1</span></div>
+      </div>
+      <div class="match">
+        <div class="tag"><b>Grupo K</b> · Guadalajara</div>
+        <div class="row win"><span class="team">Colômbia</span><span class="pts">1</span></div>
+        <div class="row"><span class="team">RD Congo</span><span class="pts">0</span></div>
+      </div>
+    </div>
+    <p style="margin-top:18px;">A Colômbia sofreu para furar o goleiro Lionel Mpasi, que segurou a RD Congo por 75 minutos até um chute desviado de Daniel Muñoz. Com a vaga assegurada, a próxima missão é a liderança do Grupo K — onde terá Portugal pela frente.</p>
+  </div>
+</section>
+
+<section id="astros">
+  <div class="wrap reveal">
+    <p class="eyebrow">O debate do dia</p>
+    <h2>Os astros estão só "inflando" números?</h2>
+    <p class="lead">"Estou de volta", avisou Ronaldo. Os dois gols sobre o Uzbequistão numa goleada por 5 a 0 foram a resposta dele às críticas — mas também reacenderam uma pergunta incômoda sobre a Copa de 48 seleções.</p>
+    <p>Aos 41 anos, Cristiano se tornou o maior goleador português da história dos Mundiais, com seus nono e décimo gols, superando o lendário Eusébio. A diferença é o caminho: Ronaldo precisou de seis Copas para chegar lá; Eusébio fez sua marca numa única participação, há 60 anos, em 1966. Eram também os primeiros gols dele em jogo aberto num grande torneio em cinco anos — alcançados diante de um estreante mundial, 59º do ranking.</p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="num">10</div>
+        <div class="cap">gols de Ronaldo em Copas — recorde de Portugal, à frente de Eusébio</div>
+      </div>
+      <div class="stat">
+        <div class="num gold">6</div>
+        <div class="cap">Mundiais diferentes com gol: ele é o primeiro a conseguir o feito</div>
+      </div>
+      <div class="stat">
+        <div class="num">41</div>
+        <div class="cap">anos — emergindo, segundo ele, de "uma semana difícil e escura"</div>
+      </div>
+    </div>
+
+    <p>Aí mora o ponto: um torneio de 48 seleções tende a abrir mais espaço para goleadas sobre adversários mais frágeis. Mbappé poderia ter feito hat-trick contra o Iraque, assim como Haaland — e o Iraque, como o Uzbequistão, faz sua estreia mundial. O Haiti, que não joga em casa há quase cinco anos e voltou a uma Copa pela primeira vez desde 1974, levou 3 a 0 do Brasil, com Vinícius Júnior participando dos três gols. Alguns também apontam que a bola Trionda estaria favorecendo os atacantes.</p>
+
+    <div class="callout">
+      <div class="label">A pergunta que ficou no ar</div>
+      <p>Nenhuma dessas seleções se entregou — heróis surgiram nos gols de Cabo Verde e Curaçao. Mas, questionado sobre Messi, Ronaldo desconversou e partiu para a próxima pergunta. Talvez porque os cinco gols do argentino tenham saído todos contra seleções do top 30 do ranking.</p>
+    </div>
+
+    <div class="scorers">
+      <span class="chip lead-chip">Messi <b>5</b></span>
+      <span class="chip">Mbappé <b>4</b></span>
+      <span class="chip">Haaland <b>4</b></span>
+    </div>
+  </div>
+</section>
+
+<section id="inglaterra">
+  <div class="wrap reveal">
+    <p class="eyebrow">Boston, 0 a 0</p>
+    <h2>O problema da Inglaterra é mesmo a defesa?</h2>
+    <p class="lead">A Inglaterra teve a bola e os números, mas não o gol. Boa parte da conversa caiu sobre o ataque travado — só que a fragilidade defensiva foi o que mais deveria preocupar Thomas Tuchel.</p>
+    <p>Foram 79% de posse e 19 finalizações, muitas delas só na meia hora final, sem furar o bloqueio baixo armado com perfeição por Carlos Queiroz. Nico O'Reilly acertou a trave, Kane mandou por cima e Marc Guéhi teve uma cabeçada tirada em cima da linha. Foi apenas o quarto 0 a 0 de um torneio que, no geral, tem sido farto em gols.</p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="num">79<span style="font-size:22px;">%</span></div>
+        <div class="cap">de posse de bola — sem conseguir o gol da vitória</div>
+      </div>
+      <div class="stat">
+        <div class="num">19</div>
+        <div class="cap">finalizações, boa parte concentrada nos minutos finais</div>
+      </div>
+      <div class="stat">
+        <div class="num gold">56</div>
+        <div class="cap">minutos sem finalizar no alvo antes de se lançar ao ataque</div>
+      </div>
+    </div>
+
+    <p>Foi justamente esse afã de empurrar gente para o ataque que abriu brechas. Anthony Gordon deixou a bola escapar para Marvin Senaya na entrada da área; o goleiro Jordan Pickford saiu da área para travar Caleb Yirenkyi num lance que, em outro dia, poderia ter dado vermelho; e Ezri Konsa entrou em Prince Adu dentro da área sem pegar a bola. Muitos esperaram o pênalti — mas a bandeira do auxiliar subiu, e a Inglaterra escapou.</p>
+
+    <div class="callout">
+      <div class="label">O alerta de Tuchel</div>
+      <p>O técnico insistiu que não dá para "abrir espaço, nem por um segundo, para contra-ataques". Antes, contra a Croácia, dois golaços expuseram a retaguarda — um deles após Bellingham perder a bola para o tento inicial de Baturina. Se quiser brigar de verdade pelo título, a Inglaterra vai precisar se fechar melhor atrás.</p>
+    </div>
+  </div>
+</section>
+
+<section id="var">
+  <div class="wrap reveal">
+    <p class="eyebrow">A polêmica</p>
+    <h2>As queixas sobre o VAR são para levar a sério?</h2>
+    <p class="lead">Carlos Queiroz disse, em tom de ironia, que o VAR "estava de férias" e "foi tomar um café" no segundo tempo, após dois lances que, no entendimento dele, prejudicaram Gana no 0 a 0.</p>
+    <p>O primeiro foi o choque de Pickford com Prince Adu, que o treinador classificou como falta clara e passível de expulsão. O segundo, a 12 minutos do fim, foi a entrada de Konsa, vista por ele como pênalti e cartão vermelho. O ex-atacante inglês Wayne Rooney também considerou que houve pênalti e que o defensor correu um risco enorme ao "pegar o homem, não a bola".</p>
+
+    <div class="callout">
+      <div class="label">Não foi só Gana</div>
+      <p>Ao final da coletiva, Queiroz pediu desculpas pelo sarcasmo, dizendo que, se reclamasse a sério, seria punido. E ele não é o único inconformado: a Argélia protocolou queixa à FIFA após o 3 a 0 sofrido para a Argentina, por acreditar que Messi deveria ter sido expulso por uma entrada de sola no capitão Aïssa Mandi — pouco antes de o argentino fazer seu primeiro hat-trick em Copas.</p>
+    </div>
+  </div>
+</section>
+
+<section id="dia14">
+  <div class="wrap reveal">
+    <p class="eyebrow">O que vem por aí</p>
+    <h2>O que esperar do Dia 14?</h2>
+    <p class="lead">Os Grupos A, B e C se encerram na última rodada antes do mata-mata. E o foco do Brasil, que era o retorno de Neymar, virou outro: a pressão para Ancelotti começar com Endrick.</p>
+    <p>Os memes tomaram conta — e nem a bela atuação de Matheus Cunha, com dois gols sobre o Haiti em Filadélfia, convenceu a torcida de que ele é o homem para o ataque. A Escócia, que nunca passou da fase de grupos numa Copa, promete clima quente em Miami Gardens. O México, já classificado e dono do grupo, pega os tchecos; e Canadá x Suíça é vendido como o maior jogo da história da seleção masculina canadense, num reencontro de Jesse Marsch e Murat Yakin.</p>
+
+    <ul class="fixtures">
+      <li><span class="grp">Grupo B</span><span class="game">Suíça x Canadá</span><span class="time">a confirmar</span></li>
+      <li><span class="grp">Grupo B</span><span class="game">Bósnia e Herzegovina x Catar</span><span class="time">a confirmar</span></li>
+      <li><span class="grp">Grupo C</span><span class="game">Marrocos x Haiti</span><span class="time">a confirmar</span></li>
+      <li><span class="grp">Grupo C</span><span class="game">Escócia x Brasil</span><span class="time">Miami Gardens</span></li>
+      <li><span class="grp">Grupo A</span><span class="game">África do Sul x Coreia do Sul</span><span class="time">a confirmar</span></li>
+      <li><span class="grp">Grupo A</span><span class="game">República Tcheca x México</span><span class="time">a confirmar</span></li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Resumo do Dia 13 <span class="dot">·</span> Copa do Mundo 2026 <span class="dot">·</span> 24 de junho de 2026<br>
+    Fonte: The Athletic
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  // Rolagem suave para os links da navegação (funciona em visualizadores sandbox)
+  var links = document.querySelectorAll('a.nav-link');
+  var i;
+  for(i = 0; i < links.length; i++){
+    links[i].addEventListener('click', function(e){
+      var href = this.getAttribute('href');
+      if(href && href.charAt(0) === '#'){
+        var target = document.getElementById(href.substring(1));
+        if(target){
+          e.preventDefault();
+          var behavior = 'smooth';
+          try{
+            target.scrollIntoView({behavior: behavior, block: 'start'});
+          }catch(err){
+            target.scrollIntoView();
+          }
+        }
+      }
+    });
+  }
+
+  // Reveal ao rolar, com fallback caso IntersectionObserver não exista
+  var reveals = document.querySelectorAll('.reveal');
+  var j;
+  if('IntersectionObserver' in window){
+    var obs = new IntersectionObserver(function(entries){
+      var k;
+      for(k = 0; k < entries.length; k++){
+        if(entries[k].isIntersecting){
+          entries[k].target.classList.add('show');
+          obs.unobserve(entries[k].target);
+        }
+      }
+    }, {threshold: 0.12});
+    for(j = 0; j < reveals.length; j++){
+      obs.observe(reveals[j]);
+    }
+  }else{
+    for(j = 0; j < reveals.length; j++){
+      reveals[j].classList.add('show');
+    }
+  }
+})();
+</script>
+</body>
+</html>
