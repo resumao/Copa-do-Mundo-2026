@@ -8,11 +8,11 @@
      publicados passam a mostrar a lista completa automaticamente.
      ======================================================================= */
   var RECAPS = [
+    { dia: 16, arquivo: "recap-dia-16.html", titulo: "Dembélé mira a Bola de Ouro; Cabo Verde faz história" },
     { dia: 15, arquivo: "recap-dia-15.html", titulo: "Equador derruba a Alemanha; EUA tropeçam" },
     { dia: 14, arquivo: "recap-dia-14.html", titulo: "Brasil fecha o grupo em primeiro" },
     { dia: 13, arquivo: "recap-dia-13.html", titulo: "Ronaldo entra para a história" },
     { dia: 12, arquivo: "recap-dia-12.html", titulo: "Messi assume a artilharia da história" },
-    { dia: 16, arquivo: "recap-dia-16.html", titulo: "Dembélé mira a Bola de Ouro; Cabo Verde faz história" },
   ];
   /* ===================================================================== */
 
