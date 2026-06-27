@@ -67,8 +67,10 @@
   /* ===== HERO ===== */
   .hero{padding:54px 0 30px;}
   .eyebrow{
-    font-family:var(--disp);font-weight:600;letter-spacing:.22em;text-transform:uppercase;
-    font-size:13px;color:var(--pitch);margin-bottom:14px;
+    display:inline-block;
+    font-family:var(--disp);font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+    font-size:13px;color:var(--navy);background:var(--gold);
+    padding:5px 12px;border-radius:3px;margin-bottom:18px;
   }
   .hero h1{
     font-family:var(--disp);font-weight:700;line-height:1.04;
@@ -82,6 +84,12 @@
     font-size:13px;color:var(--chalk);
   }
   .meta b{color:var(--ink);font-weight:500;}
+  .source{
+    display:inline-block;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);
+    font-family:var(--disp);letter-spacing:.16em;text-transform:uppercase;
+    font-size:13px;color:var(--ink);
+  }
+  .source b{color:var(--pitch);font-weight:600;}
 
   /* ===== SECTIONS ===== */
   section{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:64px;}
@@ -186,7 +194,6 @@
   @media (max-width:560px){
     .hero{padding:38px 0 24px;}
     section{padding:28px 0;}
-    .navlinks{display:none;}
   }
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
 
@@ -231,7 +238,7 @@
 
 <div class="topbar">
   <div class="inner">
-    <div class="brand">Copa 2026 · <span>Dia 15</span></div>
+    <div class="brand">Copa do Mundo 2026 · <span>Dia 15</span></div>
     <nav class="navlinks">
       <a href="#placar">Placar</a>
       <a href="#record">Campanha perfeita</a>
@@ -253,10 +260,11 @@
 <div class="wrap">
 
   <header class="hero">
-    <div class="eyebrow">26 de junho de 2026 · Encerramento dos Grupos D, E e F</div>
+    <div class="eyebrow">Resumo do Dia 15 · 26 de junho</div>
     <h1>O Equador derruba a Alemanha. Os <em>EUA</em> tropeçam. E a Tunísia entra para a história — pelo motivo errado.</h1>
     <p class="lede">Um dia de zebras, reservas e contas: a Alemanha perde os 100% de aproveitamento, os Estados Unidos caem para a Turquia já classificados em primeiro, e a corrida pelas oito melhores terceiras vagas começa a se afunilar.</p>
-    <div class="meta">Resumo do dia · <b>Grupos D, E, F encerrados</b></div>
+    <div class="meta">Equador derruba a Alemanha · EUA tropeçam para a Turquia · Tunísia quase a pior da história · <b>Grupos D, E e F encerrados</b></div>
+    <div class="source">Fonte · <b>The Athletic</b></div>
   </header>
 
   <!-- PLACAR -->
@@ -459,7 +467,6 @@
       });
     }
 
-    // Dropdown "Recaps anteriores"
     var prevBtn = document.getElementById('prevBtn');
     var prevPanel = document.getElementById('prevPanel');
     if (prevBtn && prevPanel){
