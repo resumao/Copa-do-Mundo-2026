@@ -15,7 +15,7 @@
     { dia: 13, arquivo: "recap-dia-13.html", titulo: "Ronaldo entra para a história" },
     { dia: 12, arquivo: "recap-dia-12.html", titulo: "Messi assume a artilharia da história" },
     { dia: 11, arquivo: "recap-dia-11.html", titulo: "Lamine Yamal entra em cena; o torneio dos goleiros" },
-    { dia: 10, arquivo: "recap-dia-10.html", titulo: "A atuação histórica de Eloy Room" }
+    { dia: 10, arquivo: "recap-dia-10.html", titulo: "A atuação histórica de Eloy Room" },
   ];
   /* ===================================================================== */
 
