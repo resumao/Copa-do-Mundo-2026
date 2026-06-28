@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EUA, campeões mundiais (não oficiais). Veremos um campeão inédito? — Resumo do Dia 9</title>
+
+<!-- Open Graph (preview do WhatsApp / redes) -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Resumão · Copa 2026">
+<meta property="og:title" content="EUA são os campeões mundiais (não oficiais). Veremos um campeão inédito? · Dia 9">
+<meta property="og:description" content="Os Estados Unidos bateram a Austrália, garantiram as oitavas e herdaram o título mundial linear. E afinal: pode sair um campeão inédito desta Copa?">
+<meta property="og:url" content="https://resumao.github.io/Copa-do-Mundo-2026/recap-dia-09.html">
+<meta property="og:image" content="https://resumao.github.io/Copa-do-Mundo-2026/dia-09.jpg">
+<meta property="og:image:secure_url" content="https://resumao.github.io/Copa-do-Mundo-2026/dia-09.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Jogadores dos Estados Unidos comemoram a vitória sobre a Austrália">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Resumão · Copa 2026 · Dia 9">
+<meta name="twitter:description" content="EUA campeões mundiais (não oficiais). Veremos um campeão inédito?">
+<meta name="twitter:image" content="https://resumao.github.io/Copa-do-Mundo-2026/dia-09.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#0b1220;
+    --night-2:#111b2e;
+    --card:#16223a;
+    --card-2:#1b2a47;
+    --line:#26344f;
+    --pitch:#3ddc84;
+    --pitch-dim:#27a866;
+    --gold:#f2c14e;
+    --gold-soft:#f6cf6b;
+    --ink:#eaf1ff;
+    --muted:#9fb0cc;
+    --red:#ff5d5d;
+    --display:'Oswald','Arial Narrow',Impact,sans-serif;
+    --body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--night);
+    color:var(--ink);
+    font-family:var(--body);
+    line-height:1.65;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--pitch);text-decoration:none;}
+
+  /* ---------- Nav ---------- */
+  .nav{
+    position:-webkit-sticky;
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(11,18,32,0.92);
+    border-bottom:1px solid var(--line);
+    -webkit-backdrop-filter:blur(8px);
+    backdrop-filter:blur(8px);
+  }
+  .nav-inner{
+    max-width:1040px;
+    margin:0 auto;
+    padding:12px 22px;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:10px 18px;
+  }
+  .nav-brand{
+    font-family:var(--display);
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-size:14px;
+    color:var(--gold);
+    margin-right:auto;
+  }
+  .nav-brand b{color:var(--pitch);}
+  .nav a.nav-link{
+    font-family:var(--display);
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    font-size:13px;
+    color:var(--muted);
+    padding:4px 0;
+    border-bottom:2px solid transparent;
+  }
+  .nav a.nav-link:hover{color:var(--ink);border-bottom-color:var(--pitch);}
+
+  .prev-wrap{position:relative;}
+  #prevBtn{
+    font-family:var(--display);
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    font-size:13px;
+    background:var(--gold);
+    color:var(--night);
+    border:none;
+    border-radius:999px;
+    padding:7px 16px;
+    cursor:pointer;
+    font-weight:600;
+  }
+  #prevBtn:hover{background:var(--gold-soft);}
+  #prevPanel{
+    display:none;
+    position:absolute;
+    right:0;
+    top:120%;
+    min-width:280px;
+    background:var(--night-2);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:8px;
+    box-shadow:0 18px 40px rgba(0,0,0,.45);
+  }
+  #prevPanel.open{display:block;}
+  #prevPanel a{
+    display:block;
+    padding:10px 12px;
+    border-radius:9px;
+    color:var(--ink);
+    font-size:14px;
+  }
+  #prevPanel a:hover{background:var(--card);}
+  #prevPanel a .d{
+    font-family:var(--display);
+    color:var(--gold);
+    font-size:12px;
+    letter-spacing:.08em;
+    display:block;
+  }
+  #prevPanel a.current{opacity:.5;cursor:default;}
+
+  /* ---------- Layout ---------- */
+  .wrap{max-width:880px;margin:0 auto;padding:0 22px;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+    background:
+      radial-gradient(90% 60% at 12% 0%,rgba(61,220,132,.10),transparent 60%),
+      radial-gradient(80% 60% at 100% 0%,rgba(242,193,78,.10),transparent 55%),
+      var(--night);
+  }
+  .hero-inner{max-width:880px;margin:0 auto;padding:40px 22px 34px;position:relative;z-index:1;}
+  .kicker{
+    font-family:var(--display);
+    text-transform:uppercase;
+    letter-spacing:.2em;
+    font-size:13px;
+    color:var(--red);
+    font-weight:600;
+  }
+  .hero h1{
+    font-family:var(--display);
+    font-weight:700;
+    line-height:1.04;
+    letter-spacing:.005em;
+    font-size:clamp(34px,7vw,58px);
+    margin:10px 0 14px;
+  }
+  .hero h1 em{color:var(--pitch);font-style:normal;}
+  .standfirst{font-size:clamp(17px,2.4vw,20px);color:var(--muted);max-width:680px;}
+  .source{
+    margin-top:18px;
+    padding-top:14px;
+    border-top:1px solid var(--line);
+    font-size:14px;
+    color:var(--muted);
+  }
+  .source b{color:var(--pitch);}
+  .source .by{color:var(--ink);}
+
+  /* ---------- Sections ---------- */
+  section{padding:34px 0;border-bottom:1px solid var(--line);}
+  .eyebrow{
+    font-family:var(--display);
+    text-transform:uppercase;
+    letter-spacing:.16em;
+    font-size:13px;
+    color:var(--gold);
+    margin-bottom:8px;
+  }
+  h2{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:clamp(24px,4.4vw,34px);
+    line-height:1.1;
+    margin:0 0 14px;
+  }
+  h3{
+    font-family:var(--display);
+    font-weight:500;
+    font-size:20px;
+    margin:22px 0 8px;
+    color:var(--ink);
+  }
+  p{margin:0 0 14px;}
+  p .hl{color:var(--gold);font-weight:600;}
+
+  /* ---------- Scoreboard ---------- */
+  .scores{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px;}
+  @media (max-width:620px){.scores{grid-template-columns:1fr;}}
+  .game{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:14px 16px;
+  }
+  .game .grp{
+    font-family:var(--display);
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    font-size:11px;
+    color:var(--muted);
+    margin-bottom:8px;
+  }
+  .game .row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:3px 0;
+  }
+  .game .row .t{font-weight:600;}
+  .game .row .s{
+    font-family:var(--display);
+    font-size:22px;
+    font-weight:700;
+    min-width:30px;
+    text-align:right;
+  }
+  .game .row.win .t{color:var(--pitch);}
+  .game .row.win .s{color:var(--pitch);}
+  .game .row.draw .s{color:var(--gold);}
+  .game .tag{
+    margin-top:10px;
+    font-size:12px;
+    color:var(--muted);
+    border-top:1px solid var(--line);
+    padding-top:8px;
+  }
+  .game .tag b{color:var(--gold);}
+
+  /* ---------- Callout ---------- */
+  .callout{
+    background:linear-gradient(180deg,var(--card-2),var(--card));
+    border:1px solid var(--line);
+    border-left:4px solid var(--gold);
+    border-radius:12px;
+    padding:16px 18px;
+    margin:18px 0;
+  }
+  .callout .lab{
+    font-family:var(--display);
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    font-size:12px;
+    color:var(--gold);
+    margin-bottom:6px;
+  }
+  .callout p{margin:0;color:var(--ink);}
+
+  /* ---------- Stats strip ---------- */
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin-top:8px;
+  }
+  @media (max-width:620px){.stats{grid-template-columns:1fr;}}
+  .stat{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:16px;
+    text-align:center;
+  }
+  .stat .n{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:34px;
+    color:var(--pitch);
+    line-height:1;
+  }
+  .stat .l{font-size:13px;color:var(--muted);margin-top:6px;}
+
+  /* ---------- Candidates ---------- */
+  .cands{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:8px;
+  }
+  @media (max-width:620px){.cands{grid-template-columns:1fr;}}
+  .cand{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:14px 16px;
+  }
+  .cand .ct{
+    font-family:var(--display);
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    font-size:15px;
+    color:var(--pitch);
+    margin-bottom:4px;
+  }
+  .cand p{margin:0;font-size:14px;color:var(--muted);}
+
+  /* ---------- Fixtures ---------- */
+  .fixtures{margin-top:6px;}
+  .fix{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:14px;
+    padding:11px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .fix:last-child{border-bottom:none;}
+  .fix .m{font-weight:600;}
+  .fix .m span{color:var(--muted);font-weight:400;font-size:13px;display:block;}
+  .fix .h{
+    font-family:var(--display);
+    color:var(--gold);
+    font-size:15px;
+    white-space:nowrap;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{padding:30px 0 10px;color:var(--muted);font-size:14px;}
+  footer .src{
+    border-top:1px solid var(--line);
+    padding-top:16px;
+    font-size:15px;
+  }
+  footer .src b{color:var(--pitch);}
+
+  /* ---------- Reveal ---------- */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-brand">RESUM<b>&Atilde;O</b> &middot; COPA 2026</div>
+      <a class="nav-link" href="#placar">Placar</a>
+      <a class="nav-link" href="#eua">EUA</a>
+      <a class="nav-link" href="#inedito">Campe&atilde;o in&eacute;dito?</a>
+      <a class="nav-link" href="#vini">Vin&iacute;cius</a>
+      <a class="nav-link" href="#dia10">Dia 10</a>
+      <div class="prev-wrap">
+        <button id="prevBtn" type="button" aria-haspopup="true" aria-expanded="false">Recaps &#9662;</button>
+        <div id="prevPanel"></div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner reveal">
+      <div class="kicker">An&aacute;lise &middot; Dia 9</div>
+      <h1>Os <em>EUA</em> s&atilde;o os campe&otilde;es mundiais (n&atilde;o oficiais)</h1>
+      <p class="standfirst">Vit&oacute;ria sobre a Austr&aacute;lia garantiu as oitavas, o Grupo D e um t&iacute;tulo cur(ios)o de heran&ccedil;a. E afinal: pode sair um campe&atilde;o in&eacute;dito desta Copa?</p>
+      <div class="source">
+        Fonte: <b>The Athletic</b> &middot; <span class="by">Nick Miller</span> &middot; 20 de junho de 2026
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+
+    <section id="placar" class="reveal">
+      <div class="eyebrow">Resultados &middot; Sexta, 19 de junho</div>
+      <h2>O placar do Dia 9</h2>
+      <div class="scores">
+
+        <div class="game">
+          <div class="grp">Grupo D &middot; Seattle</div>
+          <div class="row win"><span class="t">Estados Unidos</span><span class="s">2</span></div>
+          <div class="row"><span class="t">Austr&aacute;lia</span><span class="s">0</span></div>
+          <div class="tag"><b>EUA</b> vencem o Grupo D; Turquia fora</div>
+        </div>
+
+        <div class="game">
+          <div class="grp">Grupo C</div>
+          <div class="row win"><span class="t">Brasil</span><span class="s">3</span></div>
+          <div class="row"><span class="t">Haiti</span><span class="s">0</span></div>
+          <div class="tag"><b>Vin&iacute;cius</b> brilha; Cunha faz dois</div>
+        </div>
+
+        <div class="game">
+          <div class="grp">Grupo C &middot; Foxborough</div>
+          <div class="row win"><span class="t">Marrocos</span><span class="s">1</span></div>
+          <div class="row"><span class="t">Esc&oacute;cia</span><span class="s">0</span></div>
+          <div class="tag">Sabari decide; torcida escocesa encanta</div>
+        </div>
+
+        <div class="game">
+          <div class="grp">Grupo D</div>
+          <div class="row win"><span class="t">Paraguai</span><span class="s">1</span></div>
+          <div class="row"><span class="t">Turquia</span><span class="s">0</span></div>
+          <div class="tag">Almiron &eacute; expulso em lance in&eacute;dito</div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="eua" class="reveal">
+      <div class="eyebrow">Os anfitri&otilde;es</div>
+      <h2>Adivinhe quem s&atilde;o os campe&otilde;es mundiais n&atilde;o oficiais</h2>
+      <p>Os campe&otilde;es oficiais s&oacute; ser&atilde;o conhecidos na final, em Nova Jersey, em 19 de julho. Mas os <span class="hl">campe&otilde;es n&atilde;o oficiais</span> foram coroados em Seattle: sem Christian Pulisic, poupado por uma les&atilde;o na panturrilha, os EUA bateram a Austr&aacute;lia por 2 a 0 &mdash; gol contra e cabe&ccedil;ada de Alex Freeman &mdash;, seguraram o 1&ordm; lugar do Grupo D e eliminaram a Turquia, que perdeu para o Paraguai.</p>
+      <div class="callout">
+        <div class="lab">O que &eacute; o t&iacute;tulo &ldquo;linear&rdquo;</div>
+        <p>Funciona como um cintur&atilde;o de boxe: quem vence o atual detentor leva o t&iacute;tulo, numa linha que remonta ao primeiro jogo internacional (Esc&oacute;cia x Inglaterra, 1872). Antes desta Copa, o t&iacute;tulo era da Turquia; ela perdeu para a Austr&aacute;lia na estreia, e agora os EUA tomaram a coroa dos australianos.</p>
+      </div>
+      <p>At&eacute; onde eles podem ir? Talvez tenham mesmo de se contentar com o t&iacute;tulo n&atilde;o oficial &mdash; mas o clima em torno do time de Mauricio Pochettino s&oacute; melhora, indo at&eacute; al&eacute;m do que se esperava dos anfitri&otilde;es. E isso, para o torneio em geral, s&oacute; faz bem.</p>
+    </section>
+
+    <section id="inedito" class="reveal">
+      <div class="eyebrow">A pergunta do dia</div>
+      <h2>Veremos um campe&atilde;o in&eacute;dito?</h2>
+      <p>Copa do Mundo n&atilde;o costuma dar campe&atilde;o-surpresa &mdash; isso fica para as competi&ccedil;&otilde;es continentais. Aqui, s&oacute; os pesos-pesados levantam a ta&ccedil;a, e os &uacute;ltimos estreantes foram a França anfitri&atilde; de 1998 e a Espanha de 2010, ambas com gera&ccedil;&otilde;es excepcionais. Antes delas, a Inglaterra de 1966. Mesmo assim, num torneio com tantas zebras, vale perguntar: h&aacute; um primeiro campe&atilde;o entre os candidatos?</p>
+      <div class="cands">
+        <div class="cand"><div class="ct">Portugal</div><p>Pouco convincente no empate com a RD Congo.</p></div>
+        <div class="cand"><div class="ct">Col&ocirc;mbia</div><p>Passou f&aacute;cil pelo Uzbequist&atilde;o, mas vem teste duro.</p></div>
+        <div class="cand"><div class="ct">Cro&aacute;cia / Holanda</div><p>J&aacute; foram finalistas com times melhores e falharam.</p></div>
+        <div class="cand"><div class="ct">&Aacute;frica</div><p>Senegal mais forte; Marrocos (semi em 2022) e Costa do Marfim animam.</p></div>
+      </div>
+      <p>O peso dos favoritos sugere que talvez n&atilde;o haja in&eacute;dito desta vez. Mas o tom meio doido deste torneio deixa a porta aberta para surpresas &mdash; e a&iacute; entram os pr&oacute;prios EUA, que... bem, n&atilde;o poderiam... poderiam?</p>
+    </section>
+
+    <section id="vini" class="reveal">
+      <div class="eyebrow">A estrela do Brasil</div>
+      <h2>Vin&iacute;cius pronto para levar o Brasil ao t&iacute;tulo?</h2>
+      <p>Um dos temas desta Copa &eacute; como os astros responderam: Messi fez tr&ecirc;s, Mbappé, Haaland e Kane fizeram dois cada. <span class="hl">Vin&iacute;cius J&uacute;nior</span> entra nessa lista: tirou o Brasil de um aperto contra o Marrocos com um gola&ccedil;o e, diante do Haiti, marcou, deu assist&ecirc;ncia para Matheus Cunha e ainda forçou outro gol. Aos quase 26 anos, era o mais jovem da escala&ccedil;&atilde;o, mas o time girava em torno dele.</p>
+      <p>Este &eacute; o time de Vin&iacute;cius &mdash; ainda mais com Neymar num papel perif&eacute;rico, mais figura de inspira&ccedil;&atilde;o do que protagonista. Com Raphinha lesionado, Neymar se reencontrando e Jo&atilde;o Pedro fora, a responsabilidade recai sobre ele, que vem entregando.</p>
+      <div class="callout">
+        <div class="lab">A express&atilde;o de Vin&iacute;cius em campo... e fora dele</div>
+        <p>Num jogo em que o Brasil nem estava, Almiron foi expulso ap&oacute;s revis&atilde;o do VAR por cobrir a boca ao falar com um advers&aacute;rio &mdash; o primeiro cart&atilde;o vermelho do tipo. A regra, criada pela IFAB em abril, surgiu ap&oacute;s Vin&iacute;cius denunciar ter sido alvo de inj&uacute;ria racial de um advers&aacute;rio que cobria a boca, em jogo da Champions.</p>
+      </div>
+    </section>
+
+    <section id="dia10" class="reveal">
+      <div class="eyebrow">O que vem por a&iacute;</div>
+      <h2>Dia 10: Holanda testada, e um t&eacute;cnico estreante na Tun&iacute;sia</h2>
+      <p>A Su&eacute;cia, uma das surpresas da 1&ordf; rodada (5 a 1 na Tun&iacute;sia, com G&ouml;keres, Isak e dois de Ayari), encara a Holanda, que busca a 1&ordf; vit&oacute;ria ap&oacute;s empatar com o Jap&atilde;o. No outro jogo do Grupo F, algo in&eacute;dito: <span class="hl">Herv&eacute; Renard</span> assume a Tun&iacute;sia com o time ainda vivo no torneio &mdash; nunca um t&eacute;cnico havia chegado de fora nessa situa&ccedil;&atilde;o. No Grupo E, Alemanha x Costa do Marfim e Equador x Cura&ccedil;ao, que sonha com o primeiro ponto.</p>
+      <div class="fixtures">
+        <div class="fix"><div class="m">Holanda x Su&eacute;cia <span>Grupo F</span></div><div class="h">14h00</div></div>
+        <div class="fix"><div class="m">Alemanha x Costa do Marfim <span>Grupo E</span></div><div class="h">17h00</div></div>
+        <div class="fix"><div class="m">Equador x Cura&ccedil;ao <span>Grupo E</span></div><div class="h">21h00</div></div>
+        <div class="fix"><div class="m">Tun&iacute;sia x Jap&atilde;o <span>Grupo F</span></div><div class="h">01h00</div></div>
+      </div>
+      <p style="margin-top:12px;font-size:14px;color:var(--muted);">Hor&aacute;rios convertidos para Bras&iacute;lia (ET + 1h).</p>
+    </section>
+
+    <footer>
+      <div class="src">Fonte: <b>The Athletic</b> &mdash; &ldquo;U.S. are (unofficial) world champions &ndash; and will we see a new World Cup winner? Day 9 Recap&rdquo;, de Nick Miller (20/06/2026). Resumo editorial em portugu&ecirc;s.</div>
+    </footer>
+
+  </div>
+
+  <script src="recaps.js"></script>
+  <script>
+  (function(){
+    // Abrir sempre no topo, ignorando ancora (#) herdada da URL
+    if (window.location.hash){
+      if (history && history.replaceState){
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+    }
+    window.scrollTo(0, 0);
+
+    // Dropdown "Recaps anteriores" (fallback caso recaps.js nao defina a lista)
+    var btn = document.getElementById('prevBtn');
+    var panel = document.getElementById('prevPanel');
+    var atual = 9;
+
+    var lista = (typeof window.RECAPS !== 'undefined' && window.RECAPS) ? window.RECAPS : [
+      { dia: 17, arquivo: 'recap-dia-17.html', titulo: 'Argentina tem a rota mais leve; Messi mira Fontaine' },
+      { dia: 16, arquivo: 'recap-dia-16.html', titulo: 'Dembélé mira a Bola de Ouro; Cabo Verde faz história' },
+      { dia: 15, arquivo: 'recap-dia-15.html', titulo: 'Equador derruba a Alemanha; EUA tropeçam' },
+      { dia: 14, arquivo: 'recap-dia-14.html', titulo: 'Brasil fecha o grupo em primeiro' },
+      { dia: 13, arquivo: 'recap-dia-13.html', titulo: 'Ronaldo entra para a história' },
+      { dia: 12, arquivo: 'recap-dia-12.html', titulo: 'Messi vira o maior artilheiro da história' },
+      { dia: 11, arquivo: 'recap-dia-11.html', titulo: 'Lamine Yamal entra em cena; o torneio dos goleiros' },
+      { dia: 10, arquivo: 'recap-dia-10.html', titulo: 'A atuação histórica de Eloy Room' },
+      { dia: 9, arquivo: 'recap-dia-09.html', titulo: 'EUA, campeões mundiais (não oficiais)' }
+    ];
+
+    var html = '';
+    for (var i = 0; i < lista.length; i++){
+      var r = lista[i];
+      var cur = (r.dia === atual) ? ' current' : '';
+      var href = (r.dia === atual) ? 'javascript:void(0)' : r.arquivo;
+      html += '<a class="' + ('item' + cur) + '" href="' + href + '">' +
+              '<span class="d">Dia ' + r.dia + '</span>' + r.titulo + '</a>';
+    }
+    panel.innerHTML = html;
+
+    function toggle(){
+      var open = panel.className.indexOf('open') > -1;
+      panel.className = open ? '' : 'open';
+      btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+    }
+    btn.addEventListener('click', function(e){ e.stopPropagation(); toggle(); });
+    document.addEventListener('click', function(e){
+      if (panel.className.indexOf('open') > -1){
+        if (e.target !== panel && !panel.contains(e.target) && e.target !== btn){
+          panel.className = '';
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+
+    // Reveal on scroll
+    var els = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        for (var j = 0; j < entries.length; j++){
+          if (entries[j].isIntersecting){
+            entries[j].target.className += ' in';
+            io.unobserve(entries[j].target);
+          }
+        }
+      }, { threshold: 0.12 });
+      for (var k = 0; k < els.length; k++){ io.observe(els[k]); }
+    } else {
+      for (var m = 0; m < els.length; m++){ els[m].className += ' in'; }
+    }
+  })();
+  </script>
+
+</body>
+</html>
