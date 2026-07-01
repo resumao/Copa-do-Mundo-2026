@@ -315,7 +315,7 @@
 (function(){
   "use strict";
 
-  // ---- Recaps dropdown (recaps.js é a fonte oficial; fallback abaixo) ----
+  // ---- Recaps dropdown (lista embutida e estilizada nesta pagina) ----
   var FALLBACK = [
     { dia: 20, arquivo: "recap-dia-20.html", titulo: "O ataque da Franca e a fome de recordes de Haaland" },
     { dia: 19, arquivo: "recap-dia-19.html", titulo: "Paraguai derruba a Alemanha; Brasil e Marrocos avancam" },
@@ -353,20 +353,8 @@
     }
   }
 
-  function init(list){ buildPanel(list); }
-
-  if(window.RECAPS && window.RECAPS.length){
-    init(window.RECAPS);
-  } else {
-    var s = document.createElement("script");
-    s.src = "recaps.js";
-    s.onload = function(){
-      if(window.RECAPS && window.RECAPS.length){ init(window.RECAPS); }
-      else { init(FALLBACK); }
-    };
-    s.onerror = function(){ init(FALLBACK); };
-    document.head.appendChild(s);
-  }
+  // Lista embutida (auto-suficiente): evita conflito de estilo com o recaps.js externo.
+  buildPanel(FALLBACK);
 
   // ---- Toggle ----
   var btn = document.getElementById("prevBtn");
