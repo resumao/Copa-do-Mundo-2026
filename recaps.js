@@ -20,6 +20,7 @@
      publicados passam a mostrar a lista completa automaticamente.
      ======================================================================= */
   var RECAPS = [
+    { dia: 22, arquivo: "recap-dia-22.html", titulo: "Ronaldo ainda não acabou?" },
     { dia: 21, arquivo: "recap-dia-21.html", titulo: "É o melhor EUA da história?" },
     { dia: 20, arquivo: "recap-dia-20.html", titulo: "O ataque da França e a fome de recordes de Haaland" },
     { dia: 19, arquivo: "recap-dia-19.html", titulo: "Quantas zebras a gente quer?" },
