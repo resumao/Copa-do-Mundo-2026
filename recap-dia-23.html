@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Copa 2026 · Dia 23 · O golaço de Cabo Verde que quase derrubou a Argentina</title>
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Resumão · Copa 2026">
+<meta property="og:title" content="Recap Dia 23 · O golaço de Cabo Verde que quase derrubou a Argentina">
+<meta property="og:description" content="Lopes Cabral marca um dos gols mais extraordinários da história das Copas, Messi chega a 20, Salah dá cavadinha e a Colômbia fecha as oitavas. Tudo do Dia 23.">
+<meta property="og:url" content="https://resumao.github.io/Copa-do-Mundo-2026/recap-dia-23.html">
+<meta property="og:image" content="https://resumao.github.io/Copa-do-Mundo-2026/dia-23.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Recap Dia 23 · O golaço de Cabo Verde que quase derrubou a Argentina">
+<meta name="twitter:description" content="Lopes Cabral marca um dos gols mais extraordinários da história das Copas, Messi chega a 20, Salah dá cavadinha e a Colômbia fecha as oitavas.">
+<meta name="twitter:image" content="https://resumao.github.io/Copa-do-Mundo-2026/dia-23.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#0b1220;
+    --night-2:#101b33;
+    --night-3:#16294a;
+    --pitch:#3ddc84;
+    --pitch-dim:#2bb169;
+    --gold:#f2c14e;
+    --gold-dim:#caa03b;
+    --ink:#eaf1fb;
+    --muted:#9fb2cf;
+    --line:rgba(159,178,207,.16);
+    --red:#e0573e;
+    --disp:'Oswald','Arial Narrow',sans-serif;
+    --body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+  body{
+    font-family:var(--body);
+    color:var(--ink);
+    background:var(--night);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:4rem;
+  }
+  body::before{
+    content:"";position:fixed;top:0;right:0;bottom:0;left:0;z-index:0;pointer-events:none;
+    background:radial-gradient(120% 70% at 50% -8%,var(--night-2),var(--night) 62%);
+  }
+  .wrap{position:relative;z-index:1;max-width:880px;margin:0 auto;padding:0 22px;}
+
+  /* ===== TOPBAR ===== */
+  .topbar{
+    position:-webkit-sticky;position:sticky;top:0;z-index:50;
+    background:rgba(11,18,32,.92);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-in{
+    max-width:880px;margin:0 auto;padding:12px 22px;
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+  }
+  .brand{
+    font-family:var(--disp);font-weight:600;font-size:.95rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink);text-decoration:none;white-space:nowrap;
+  }
+  .brand b{color:var(--pitch);font-weight:600;}
+  .prev-wrap{position:relative;}
+  #prevBtn{
+    font-family:var(--disp);font-weight:600;font-size:.82rem;letter-spacing:.1em;
+    text-transform:uppercase;
+    background:var(--gold);color:var(--night);
+    border:none;border-radius:999px;padding:8px 18px;cursor:pointer;
+  }
+  #prevBtn:hover{background:#f6cf6b;}
+  #prevPanel{
+    display:none;position:absolute;right:0;top:calc(100% + 8px);
+    min-width:280px;max-height:340px;overflow-y:auto;
+    background:var(--night-2);border:1px solid var(--line);border-radius:12px;
+    box-shadow:0 14px 38px rgba(0,0,0,.5);padding:8px;
+  }
+  #prevPanel.open{display:block;}
+  #prevPanel a{
+    display:block;padding:9px 12px;border-radius:8px;
+    color:var(--ink);text-decoration:none;font-size:.86rem;line-height:1.35;
+  }
+  #prevPanel a:hover{background:var(--night-3);}
+  #prevPanel a .d{color:var(--pitch);font-family:var(--disp);font-weight:600;letter-spacing:.08em;margin-right:8px;}
+
+  /* ===== HERO ===== */
+  .hero{padding:56px 0 30px;}
+  .kicker{
+    font-family:var(--disp);font-weight:600;font-size:.85rem;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--pitch);margin-bottom:14px;
+  }
+  h1{
+    font-family:var(--disp);font-weight:600;line-height:1.12;
+    font-size:2.5rem;letter-spacing:.01em;text-transform:uppercase;margin-bottom:16px;
+  }
+  h1 .gd{color:var(--gold);}
+  .lede{font-size:1.06rem;color:var(--muted);max-width:640px;}
+  .srcline{
+    margin-top:18px;font-size:.8rem;letter-spacing:.06em;color:var(--muted);
+    text-transform:uppercase;font-weight:600;
+  }
+  .srcline span{color:var(--gold);}
+
+  /* ===== SECTIONS ===== */
+  section{padding:34px 0 6px;border-top:1px solid var(--line);margin-top:34px;}
+  section:first-of-type{border-top:none;margin-top:0;}
+  h2{
+    font-family:var(--disp);font-weight:600;font-size:1.5rem;letter-spacing:.03em;
+    text-transform:uppercase;margin-bottom:16px;
+  }
+  h2 em{color:var(--pitch);font-style:normal;}
+  p{margin-bottom:14px;color:#d5e0f2;}
+  p strong{color:var(--ink);}
+
+  /* ===== SCOREBOARD ===== */
+  .board{display:grid;grid-template-columns:1fr;gap:12px;margin:20px 0 8px;}
+  @media(min-width:680px){.board{grid-template-columns:repeat(3,1fr);}}
+  .card{
+    background:var(--night-2);border:1px solid var(--line);border-radius:14px;
+    padding:16px 16px 14px;
+  }
+  .card .stage{
+    font-family:var(--disp);font-size:.72rem;font-weight:600;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:10px;
+  }
+  .card .row{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:4px;}
+  .card .team{font-weight:700;font-size:.98rem;}
+  .card .sc{font-family:var(--disp);font-weight:600;font-size:1.2rem;color:var(--gold);}
+  .card .win .team{color:var(--pitch);}
+  .card .note{margin-top:10px;font-size:.8rem;color:var(--muted);line-height:1.4;}
+
+  /* ===== CALLOUTS ===== */
+  .callout{
+    border-left:4px solid var(--pitch);background:rgba(61,220,132,.07);
+    border-radius:0 12px 12px 0;padding:16px 18px;margin:20px 0;
+  }
+  .callout.gold{border-left-color:var(--gold);background:rgba(242,193,78,.07);}
+  .callout p{margin-bottom:0;}
+  .callout .tag{
+    display:block;font-family:var(--disp);font-weight:600;font-size:.74rem;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--pitch);margin-bottom:8px;
+  }
+  .callout.gold .tag{color:var(--gold);}
+
+  /* ===== STATS STRIP ===== */
+  .strip{display:grid;grid-template-columns:1fr;gap:12px;margin:22px 0 8px;}
+  @media(min-width:620px){.strip{grid-template-columns:repeat(3,1fr);}}
+  .stat{
+    background:var(--night-2);border:1px solid var(--line);border-radius:14px;
+    padding:18px 16px;text-align:center;
+  }
+  .stat .n{
+    font-family:var(--disp);font-weight:600;font-size:2rem;color:var(--pitch);line-height:1;
+  }
+  .stat.gold .n{color:var(--gold);}
+  .stat .l{margin-top:8px;font-size:.78rem;color:var(--muted);line-height:1.4;}
+
+  /* ===== AGENDA ===== */
+  .agenda{margin:18px 0 8px;}
+  .fx{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    background:var(--night-2);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;margin-bottom:10px;
+  }
+  .fx .m{font-weight:700;font-size:.96rem;}
+  .fx .t{
+    font-family:var(--disp);font-weight:600;font-size:.9rem;letter-spacing:.08em;
+    color:var(--gold);white-space:nowrap;
+  }
+
+  footer{
+    margin-top:48px;padding-top:22px;border-top:1px solid var(--line);
+    font-size:.8rem;color:var(--muted);
+  }
+  footer span{color:var(--gold);}
+
+  /* ===== REVEAL ===== */
+  .rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;}
+  .rv.on{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    .rv{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="index.html">Resumão · <b>Copa 2026</b></a>
+    <div class="prev-wrap">
+      <button id="prevBtn" type="button">Recaps ▾</button>
+      <div id="prevPanel"></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="hero rv">
+    <div class="kicker">Dia 23 · Sexta-feira, 3 de julho · Rodada de 32</div>
+    <h1>O golaço de Cabo Verde que <span class="gd">quase</span> derrubou a Argentina</h1>
+    <p class="lede">Um chute de outro planeta de Sidny Lopes Cabral, o 20º gol de Messi em Copas, uma cavadinha de Salah nos pênaltis e a Colômbia fechando o quadro das oitavas. Um dia em que até um shootout dramático virou nota de rodapé.</p>
+    <div class="srcline">Fonte · <span>The Athletic</span> · Nick Miller</div>
+  </div>
+
+  <section class="rv">
+    <h2>O placar do <em>dia</em></h2>
+    <div class="board">
+      <div class="card">
+        <div class="stage">Miami · Prorrogação</div>
+        <div class="row win"><span class="team">Argentina</span><span class="sc">3</span></div>
+        <div class="row"><span class="team">Cabo Verde</span><span class="sc">2</span></div>
+        <div class="note">Messi marca um e dá assistência. Lopes Cabral quase leva a decisão aos pênaltis com um golaço aos 102'.</div>
+      </div>
+      <div class="card">
+        <div class="stage">Dallas · Pênaltis</div>
+        <div class="row"><span class="team">Austrália</span><span class="sc">1 (2)</span></div>
+        <div class="row win"><span class="team">Egito</span><span class="sc">1 (4)</span></div>
+        <div class="note">Salah converte de cavadinha. A Austrália trocou o goleiro só para o shootout — e Mat Ryan não chegou em nenhuma.</div>
+      </div>
+      <div class="card">
+        <div class="stage">Kansas City</div>
+        <div class="row win"><span class="team">Colômbia</span><span class="sc">1</span></div>
+        <div class="row"><span class="team">Gana</span><span class="sc">0</span></div>
+        <div class="note">Gol de Jhon Arias no primeiro tempo em jogo de desgaste. Última vaga das oitavas definida.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rv">
+    <h2>Quão extraordinário foi o gol de <em>Lopes Cabral</em>?</h2>
+    <p>Sidny Lopes Cabral, 23 anos, lateral-esquerdo, jogava na terceira divisão alemã no ano passado. Passou por Suécia, Holanda e Portugal, chegou ao Benfica em janeiro e acabou de assinar com o Trabzonspor. No Benfica, viu de perto o goleiro Trubin marcar um gol impossível contra o Real Madrid — e talvez achasse que aquele seria o lance mais absurdo do seu ano.</p>
+    <p>Foi até ele receber a bola pela esquerda, com Cabo Verde perdendo por 2 a 1 na prorrogação, e armar o pé direito. A bola saiu quicando, fazendo curva, ganhando efeito — e morreu no ângulo. Na comemoração, ele subiu na arquibancada procurando um parente, e ficou parado por longos segundos como um torcedor perguntando ao segurança onde ficava seu assento.</p>
+    <div class="callout">
+      <span class="tag">A régua histórica</span>
+      <p>Se aquele gol tivesse levado Cabo Verde à vitória, entraria facilmente no top 10 de gols mais extraordinários da história das Copas — pela qualidade e pelo peso do momento. Mesmo em derrota, a campanha cabo-verdiana dentro de campo foi assombrosa.</p>
+    </div>
+    <p>Nas tribunas, mais um capítulo da novela familiar: as câmeras flagraram o sogro do zagueiro Pico Lopes com um bebê no colo — o pequeno Pico Jr., nascido um dia depois da classificação de Cabo Verde para a Copa, em outubro. A família viaja pelos EUA num motorhome. Que verão para contar a essa criança.</p>
+  </section>
+
+  <section class="rv">
+    <h2>Messi chega a <em>20</em> — mas a Argentina preocupa</h2>
+    <p>Messi marcou de novo: 20º gol em Copas do Mundo, ampliando o próprio recorde. Fez um e deu assistência em outro. Mas a atual campeã foi, talvez, a equipe que mais levantou dúvidas nesta rodada mesmo avançando: abriu vantagem duas vezes contra Cabo Verde e, por fragilidade defensiva ou complacência (provavelmente as duas), pareceu quebradiça.</p>
+    <div class="callout gold">
+      <span class="tag">O alerta</span>
+      <p>Cabo Verde, com todo o espírito, é um time tecnicamente limitado — e conseguiu chegar na Argentina. Imagine o que farão os adversários melhores. E segue a velha <strong>Messidependência</strong>: fora ele, o time foi um deserto de ideias ofensivas.</p>
+    </div>
+  </section>
+
+  <section class="rv">
+    <h2>Depois da rodada de 32, quem <em>ganha</em> essa Copa?</h2>
+    <p>Alemanha e Holanda são os maiores nomes eliminados, mas nenhuma das duas parecia candidata real. Inglaterra, Portugal e Brasil tiveram bons momentos, mas mostraram as costuras contra RD Congo, Croácia e Japão. Os anfitriões — EUA, Canadá e México — seguem vivos, mas como azarões distantes.</p>
+    <p>De longe, os dois melhores times da rodada foram <strong>França e Espanha</strong>. Os franceses são uma força ofensiva aterrorizante: Mbappé na frente, Olise e Dembélé ao lado, e tanta profundidade que deixaram Doué fora e ainda atropelaram a Suécia. A Espanha é mais cadenciada — e a sensação de que Lamine Yamal, mesmo excelente, ainda tem uma marcha extra é assustadora para o resto.</p>
+    <div class="callout">
+      <span class="tag">O detalhe da chave</span>
+      <p>França e Espanha estão do <strong>mesmo lado do chaveamento</strong>: se se cruzarem, será na semifinal, não na final. O outro lado está escancarado — se uma das duas estiver na decisão do dia 19, o adversário é imprevisível.</p>
+    </div>
+    <div class="strip">
+      <div class="stat"><div class="n">20</div><div class="l">Gols de Messi em Copas do Mundo — recorde absoluto ampliado</div></div>
+      <div class="stat gold"><div class="n">102'</div><div class="l">Minuto do golaço de Lopes Cabral, de fora da área, no ângulo</div></div>
+      <div class="stat"><div class="n">2–4</div><div class="l">Egito elimina a Austrália nos pênaltis, com cavadinha de Salah</div></div>
+    </div>
+  </section>
+
+  <section class="rv">
+    <h2>Já houve Copa mais difícil de acompanhar <em>in loco</em>?</h2>
+    <p>Dentro de campo, este já é um dos melhores Mundiais em anos — e as oitavas nem começaram. Fora dele, a experiência do torcedor viajante tem sido um teste de resistência. O episódio mais recente: por algumas horas, México x Inglaterra, no Azteca, quase foi antecipado em <strong>seis horas</strong>.</p>
+    <p>A justificativa inicial falava em clima extremo, mas as discussões internas entre FIFA e organizadores locais giraram em torno de segurança: as mortes de quatro pessoas após a vitória mexicana sobre o Equador intensificaram o temor de que um jogo às 18h na Cidade do México, com um dia inteiro de consumo de álcool antes da bola rolar, pudesse ser perigoso. O horário acabou mantido — mas a confusão pode ter custado caro a torcedores ingleses que remarcaram voos e hotéis por uma mudança que nunca veio.</p>
+    <p>Some-se a isso vistos negados, recepções hostis de autoridades americanas, ingressos caríssimos, deslocamentos longos e caros, calor extremo e temporais: nenhuma Copa na memória recente foi tão hostil a quem quis acompanhá-la de perto.</p>
+  </section>
+
+  <section class="rv">
+    <h2>O que vem <em>hoje</em> — abrem as oitavas</h2>
+    <p>Salvo nova invenção da FIFA com horários, o sábado abre as oitavas de final com o anfitrião Canadá jogando "fora de casa", em Houston. Todos os olhos em <strong>Alphonso Davies</strong>: Jesse Marsch faz mistério sobre a condição do craque, que soma só 15 minutos de futebol desde a lesão no posterior em maio. Depois, a rampante França — melhor time do torneio — encara o Paraguai. Dá para parar Mbappé? Provavelmente não.</p>
+    <div class="agenda">
+      <div class="fx"><span class="m">Canadá × Marrocos</span><span class="t">14h · Brasília</span></div>
+      <div class="fx"><span class="m">Paraguai × França</span><span class="t">18h · Brasília</span></div>
+    </div>
+  </section>
+
+  <footer class="rv">
+    Resumão · Copa 2026 — recap editorial do Dia 23.<br>
+    Fonte · <span>The Athletic</span> · Nick Miller
+  </footer>
+
+</div>
+
+<script src="recaps.js"></script>
+<script>
+(function(){
+  // ===== Dropdown Recaps =====
+  var FALLBACK = [
+    { dia: 23, arquivo: "recap-dia-23.html", titulo: "O golaço de Cabo Verde que quase derrubou a Argentina" },
+    { dia: 22, arquivo: "recap-dia-22.html", titulo: "Recap Dia 22" },
+    { dia: 21, arquivo: "recap-dia-21.html", titulo: "É o melhor EUA da história?" },
+    { dia: 20, arquivo: "recap-dia-20.html", titulo: "Recap Dia 20" },
+    { dia: 19, arquivo: "recap-dia-19.html", titulo: "Recap Dia 19" },
+    { dia: 18, arquivo: "recap-dia-18.html", titulo: "Recap Dia 18" },
+    { dia: 17, arquivo: "recap-dia-17.html", titulo: "Recap Dia 17" },
+    { dia: 16, arquivo: "recap-dia-16.html", titulo: "Recap Dia 16" },
+    { dia: 15, arquivo: "recap-dia-15.html", titulo: "Recap Dia 15" },
+    { dia: 14, arquivo: "recap-dia-14.html", titulo: "Recap Dia 14" },
+    { dia: 13, arquivo: "recap-dia-13.html", titulo: "Recap Dia 13" },
+    { dia: 12, arquivo: "recap-dia-12.html", titulo: "Messi assume a artilharia da história" }
+  ];
+
+  function buildPanel(list){
+    var panel = document.getElementById("prevPanel");
+    if (!panel) return;
+    var html = "";
+    for (var i = 0; i < list.length; i++) {
+      var r = list[i];
+      html += '<a href="' + r.arquivo + '"><span class="d">Dia ' + r.dia + '</span>' + r.titulo + '</a>';
+    }
+    panel.innerHTML = html;
+  }
+
+  var btn = document.getElementById("prevBtn");
+  var panel = document.getElementById("prevPanel");
+  if (btn && panel) {
+    btn.addEventListener("click", function(e){
+      e.stopPropagation();
+      if (panel.className.indexOf("open") >= 0) {
+        panel.className = panel.className.replace(" open", "");
+      } else {
+        panel.className += " open";
+      }
+    });
+    document.addEventListener("click", function(){
+      panel.className = panel.className.replace(" open", "");
+    });
+  }
+
+  if (typeof window.RECAPS !== "undefined" && window.RECAPS && window.RECAPS.length) {
+    buildPanel(window.RECAPS);
+  } else if (panel && panel.innerHTML.replace(/\s/g, "") === "") {
+    buildPanel(FALLBACK);
+  }
+
+  // ===== Reveal =====
+  var els = document.querySelectorAll(".rv");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function(entries){
+      for (var i = 0; i < entries.length; i++) {
+        if (entries[i].isIntersecting) {
+          entries[i].target.className += " on";
+          io.unobserve(entries[i].target);
+        }
+      }
+    }, { threshold: 0.08 });
+    for (var j = 0; j < els.length; j++) { io.observe(els[j]); }
+  } else {
+    for (var k = 0; k < els.length; k++) { els[k].className += " on"; }
+  }
+})();
+</script>
+</body>
+                                                              </html>
