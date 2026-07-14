@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Central de Palpites — Semifinais 14-15 JUL</title>
+<style>
+  :root{
+    --navy:#18222f; --panel:#212c3d; --panel2:#1b2534;
+    --green:#2f9d68; --gold:#d4af37; --red:#e06a55;
+    --ink:#e9eef6; --muted:#93a3b8; --line:rgba(212,175,55,.18);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    background:var(--navy); color:var(--ink); line-height:1.6;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+  .eyebrow{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700}
+  header{padding:8px 0 20px;border-bottom:1px solid var(--line);margin-bottom:24px}
+  header h1{font-size:1.55rem;font-weight:800;letter-spacing:-.01em;margin:6px 0 4px}
+  header p{color:var(--muted);font-size:.9rem}
+
+  .match{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:28px}
+  .match-top{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;
+    background:var(--panel2);border-bottom:1px solid var(--line);font-size:.78rem;color:var(--muted);flex-wrap:wrap;gap:4px}
+  .match-top .mult{color:var(--gold);font-weight:700}
+  .board{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;padding:22px 16px 6px;text-align:center}
+  .team{font-weight:800;font-size:1.02rem;letter-spacing:.02em}
+  .team small{display:block;font-weight:500;color:var(--muted);font-size:.72rem;margin-top:2px}
+  .score{font-size:2.6rem;font-weight:800;color:var(--gold);font-variant-numeric:tabular-nums;letter-spacing:.04em;white-space:nowrap}
+  .verdict{text-align:center;padding:4px 16px 16px;font-size:.85rem;color:var(--muted)}
+  .verdict b{color:var(--ink)}
+  .action{margin:0 16px 16px;padding:12px 14px;border-radius:8px;font-size:.9rem;border:1px solid;
+    background:rgba(47,157,104,.10);border-color:var(--green)}
+  .action.new{background:rgba(212,175,55,.10);border-color:var(--gold)}
+  .action .tag{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+    padding:2px 8px;border-radius:4px;margin-right:8px;background:var(--green);color:#0d1a12}
+  .action.new .tag{background:var(--gold);color:#241d06}
+
+  section.inner{padding:6px 16px 18px}
+  section.inner h3{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:14px 0 8px;font-weight:700}
+  .why{list-style:none;font-size:.9rem;color:#c8d3e4}
+  .why li{padding:3px 0 3px 16px;position:relative}
+  .why li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:2px;background:var(--green)}
+  .why li.neg::before{background:var(--red)}
+
+  table{width:100%;border-collapse:collapse;font-size:.85rem;margin-top:4px}
+  th{color:var(--gold);text-align:left;font-weight:700;padding:8px 6px;border-bottom:2px solid var(--green);
+    font-size:.78rem;text-transform:uppercase;letter-spacing:.06em}
+  td{padding:8px 6px;border-bottom:1px solid var(--line);color:#c8d3e4;font-variant-numeric:tabular-nums}
+  td.best{color:var(--ink);font-weight:700}
+  td .ev{color:var(--green);font-weight:700}
+  tr.pick td{background:rgba(212,175,55,.08)}
+
+  .probs{display:flex;gap:8px;margin-top:4px}
+  .prob{flex:1;background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:10px 6px;text-align:center}
+  .prob .p{font-size:1.2rem;font-weight:800;color:var(--gold)}
+  .prob .l{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+
+  .note{background:var(--panel);border-left:4px solid var(--green);border-radius:6px;padding:14px 16px;
+    font-size:.85rem;color:var(--muted);margin-bottom:16px}
+  .note b{color:var(--ink)}
+  .note.warn{border-left-color:var(--red)}
+  .note.gold{border-left-color:var(--gold)}
+  footer{margin-top:28px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:.78rem;text-align:center}
+  @media (max-width:420px){.score{font-size:2.1rem}.team{font-size:.9rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span class="eyebrow">Copa do Mundo 2026 &middot; Semifinais &middot; multiplicador 4x</span>
+    <h1>Central de Palpites — Semifinais</h1>
+    <p>Terça 14 e quarta 15 de julho. Jogos entre forças muito próximas: as margens de EV aqui são pequenas — diferente das quartas, onde havia favorito claro.</p>
+  </header>
+
+  <div class="note gold">
+    <b>Lição das quartas.</b> Os dois jogos de sábado terminaram <b>1&times;1 nos 90 minutos</b> (Inglaterra e Argentina só venceram na prorrogação, que não conta). Mata-matas equilibrados desta Copa estão empatando no tempo normal com frequência acima do que o Poisson base assume — os cenários abaixo já dão peso extra a isso. E vale o registro honesto: a troca recomendada do 1&times;1 na Noruega &times; Inglaterra era ótima em EV, mas o 1&times;1 original teria cravado 30 pts.
+  </div>
+
+  <!-- ============ JOGO 1 ============ -->
+  <div class="match">
+    <div class="match-top">
+      <span>AT&amp;T Stadium, Dallas &middot; TER 14 JUL</span>
+      <span>16:00 Brasília &middot; fecha <b style="color:var(--ink)">15:00</b> &middot; <span class="mult">semi 4x</span></span>
+    </div>
+    <div class="board">
+      <div class="team">FRANÇA<small>Melhor ataque: 16 gols em 6 jogos</small></div>
+      <div class="score">1 &times; 1</div>
+      <div class="team">ESPANHA<small>Melhor defesa: 1 gol sofrido em 6</small></div>
+    </div>
+    <div class="verdict">Recomendação: <b>manter o 1&times;1</b> — o placar exato mais provável do jogo (~13%) e robusto nas duas interpretações da regra de empate</div>
+
+    <div class="action">
+      <span class="tag">Manter</span>
+      Seu 1&times;1 atual é sólido. O 1&times;0 França tem EV médio levemente maior <b>só se</b> empate sem placar exato valer 5 pts; se valer 7 (saldo correto — dúvida em aberto do regulamento), o 1&times;1 empata ou supera. Diferença máxima: ~1,6 pts em 4x. Dentro do ruído do modelo.
+    </div>
+
+    <section class="inner">
+      <h3>Probabilidades 90 min (cenário base)</h3>
+      <div class="probs">
+        <div class="prob"><div class="p">34%</div><div class="l">França</div></div>
+        <div class="prob"><div class="p">30%</div><div class="l">Empate</div></div>
+        <div class="prob"><div class="p">36%</div><div class="l">Espanha</div></div>
+      </div>
+
+      <h3>EV por palpite (base &middot; sem multiplicador)</h3>
+      <table>
+        <tr><th>Palpite</th><th>Base</th><th>FRA ataca</th><th>Travado</th><th>Média</th></tr>
+        <tr><td>1 &times; 0</td><td>2,48</td><td><span class="ev">3,07</span></td><td>2,36</td><td>2,64</td></tr>
+        <tr><td>0 &times; 1</td><td><span class="ev">2,65</span></td><td>2,07</td><td>2,75</td><td>2,49</td></tr>
+        <tr class="pick"><td class="best">1 &times; 1 (atual)</td><td>2,19&ndash;2,53</td><td>2,14&ndash;2,46</td><td>2,36&ndash;2,77</td><td>2,23&ndash;2,59</td></tr>
+        <tr><td>0 &times; 0</td><td>2,16&ndash;2,51</td><td>2,09&ndash;2,43</td><td>2,61&ndash;<span class="ev">2,93</span></td><td>2,29&ndash;2,62</td></tr>
+      </table>
+      <p style="font-size:.78rem;color:var(--muted);margin-top:6px">Faixas nos empates = interpretação da regra (empate errado vale 5 ou 7 pts).</p>
+
+      <h3>Leitura do jogo</h3>
+      <ul class="why">
+        <li>Choque de extremos: França marcou em todos os jogos (Mbappé 8 gols, Dembélé 5) contra a defesa recordista de Unai Simón (650 min sem sofrer gol em Copas).</li>
+        <li>Espanha venceu os últimos grandes duelos (semi da Euro 2024) e tem leve vantagem no retrospecto; mercado praticamente empatado.</li>
+        <li>Ambos os técnicos com time definido e sem desfalques relevantes — jogo de detalhes, perfil de poucos gols.</li>
+        <li class="neg">Se você acredita que o ataque francês fura a muralha, 1&times;0 França é a troca; mas é aposta de convicção, não de EV.</li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- ============ JOGO 2 ============ -->
+  <div class="match">
+    <div class="match-top">
+      <span>Mercedes-Benz Stadium, Atlanta &middot; QUA 15 JUL</span>
+      <span>16:00 Brasília &middot; fecha <b style="color:var(--ink)">15:00</b> &middot; <span class="mult">semi 4x</span></span>
+    </div>
+    <div class="board">
+      <div class="team">INGLATERRA<small>Kane 6 + Bellingham 6 = 12 dos 13 gols</small></div>
+      <div class="score">1 &times; 0</div>
+      <div class="team">ARGENTINA<small>Invicta &middot; 17 gols &middot; Messi 8</small></div>
+    </div>
+    <div class="verdict">Recomendação: <b>1&times;0 Inglaterra</b> — melhor EV médio; alternativa de convicção: 0&times;1 / 1&times;2 Argentina</div>
+
+    <div class="action new">
+      <span class="tag">Palpitar</span>
+      Você ainda não palpitou este jogo (fecha amanhã 15:00). O modelo aponta <b>1&times;0 Inglaterra</b> como ótimo médio, puxado pelo fator descanso: a Argentina acumula 330 minutos extras e duas prorrogações no mata-mata. Se preferir o lado Messi, <b>0&times;1</b> é o melhor palpite argentino.
+    </div>
+
+    <section class="inner">
+      <h3>Probabilidades 90 min (cenário base)</h3>
+      <div class="probs">
+        <div class="prob"><div class="p">37%</div><div class="l">Inglaterra</div></div>
+        <div class="prob"><div class="p">28%</div><div class="l">Empate</div></div>
+        <div class="prob"><div class="p">35%</div><div class="l">Argentina</div></div>
+      </div>
+
+      <h3>EV por palpite (base &middot; sem multiplicador)</h3>
+      <table>
+        <tr><th>Palpite</th><th>Base</th><th>ENG+descanso</th><th>ARG/Messi</th><th>Média</th></tr>
+        <tr class="pick"><td class="best">1 &times; 0</td><td><span class="ev">2,63</span></td><td><span class="ev">3,10</span></td><td>2,17</td><td><span class="ev">2,64</span></td></tr>
+        <tr><td>2 &times; 1</td><td>2,53</td><td>2,97</td><td>2,08</td><td>2,53</td></tr>
+        <tr><td>0 &times; 1</td><td>2,48</td><td>2,03</td><td><span class="ev">2,94</span></td><td>2,48</td></tr>
+        <tr><td>1 &times; 2</td><td>2,38</td><td>1,93</td><td>2,83</td><td>2,38</td></tr>
+        <tr><td>1 &times; 1</td><td>2,10&ndash;2,35</td><td>2,05&ndash;2,31</td><td>2,08&ndash;2,33</td><td>2,08&ndash;2,33</td></tr>
+      </table>
+
+      <h3>Leitura do jogo</h3>
+      <ul class="why">
+        <li>Mercado dá leve favoritismo inglês (~35% implícito); dupla Kane-Bellingham concentra 12 dos 13 gols do time.</li>
+        <li>Fator físico pró-Inglaterra: Argentina jogou 2 prorrogações (Cabo Verde e Suíça) e sofreu para fechar todos os mata-matas nos 90 min.</li>
+        <li>Desfalques ingleses administrados: Henderson (fratura) e Quansah (suspenso) fora, mas Guehi e Rice voltam; Saka retorna ao time titular.</li>
+        <li class="neg">Risco: Messi marcou em 5 dos 6 jogos e a Argentina tem o melhor ataque (17 gols) — o cenário ARG derruba o 1&times;0 para 2,17.</li>
+        <li class="neg">Padrão da Copa: os últimos grandes mata-matas terminaram 1&times;1 nos 90 min. Se quiser jogar o padrão em vez do modelo, 1&times;1 rende cravada em ~13% dos casos e ajuda no desempate por cravadas.</li>
+      </ul>
+    </section>
+  </div>
+
+  <div class="note warn">
+    <b>Prazos:</b> França &times; Espanha fecha <b>hoje às 15:00</b> &middot; Inglaterra &times; Argentina fecha <b>amanhã (qua) às 15:00</b>. Só o tempo normal conta — prorrogação e pênaltis não pontuam.
+  </div>
+
+  <div class="note">
+    <b>Método.</b> Poisson bivariado calibrado no modelo v3, com três cenários de lambdas por jogo e teste das duas interpretações da regra de empate. Nas semis as forças são tão próximas que a diferença entre os melhores palpites cai para 0,2&ndash;0,4 de EV base (~1&ndash;1,6 pts em 4x) — qualquer um dos placares magros listados é defensável. A recomendação privilegia robustez entre cenários, não convicção sobre o vencedor.
+  </div>
+
+  <footer>
+    Atualizado em 14 de julho de 2026 &middot; Semifinais &middot; Modelo v3 + reotimização Poisson
+  </footer>
+</div>
+</body>
+</html>
