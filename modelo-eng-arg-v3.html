@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inglaterra × Argentina — Crítica do Modelo e Palpite v3.0</title>
+<style>
+  :root{
+    --bg:#0e1116; --card:#161b23; --card2:#1c2330; --border:#2a3342;
+    --text:#e6ebf2; --muted:#93a0b4; --accent:#4da3ff; --eng:#c8102e; --arg:#75aadb;
+    --good:#3fb96f; --bad:#e05a5a; --warn:#e0a83f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.6}
+  .wrap{max-width:880px;margin:0 auto;padding:32px 20px 64px}
+  header{text-align:center;margin-bottom:36px}
+  header .tag{display:inline-block;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:3px 14px;margin-bottom:14px}
+  h1{font-size:1.7rem;font-weight:700}
+  header p{color:var(--muted);margin-top:6px}
+  h2{font-size:1.15rem;margin:0 0 16px;display:flex;align-items:center;gap:10px}
+  h2 .n{background:var(--accent);color:#0b1017;border-radius:8px;width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;font-size:.9rem;flex:none}
+  section{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:22px}
+  p{margin-bottom:12px} p:last-child{margin-bottom:0}
+  .muted{color:var(--muted)}
+  .issue{background:var(--card2);border-left:4px solid var(--bad);border-radius:8px;padding:14px 16px;margin:12px 0}
+  .issue.warn{border-left-color:var(--warn)}
+  .issue b{display:block;margin-bottom:4px}
+  .ok{border-left-color:var(--good)}
+  code{background:#0b0f14;border:1px solid var(--border);border-radius:6px;padding:1px 7px;font-size:.85em;color:#ffd9a0}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92rem}
+  th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--border)}
+  th{color:var(--muted);font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em}
+  tr.hl td{background:rgba(77,163,255,.09);font-weight:600}
+  td.num{font-variant-numeric:tabular-nums}
+  .verdict{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px}
+  .verdict div{flex:1;min-width:200px;background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;font-size:.9rem}
+  .verdict b{display:block;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+  .verdict .g b{color:var(--good)} .verdict .b b{color:var(--bad)}
+  /* placar */
+  .scoreboard{display:flex;align-items:stretch;gap:0;background:var(--card2);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin:18px 0}
+  .team{flex:1;text-align:center;padding:22px 10px}
+  .team .name{font-weight:700;font-size:1.05rem}
+  .team .pct{font-size:2.2rem;font-weight:800;font-variant-numeric:tabular-nums}
+  .team.eng .pct{color:#ff6b81}.team.arg .pct{color:var(--arg)}
+  .draw{width:150px;text-align:center;padding:22px 10px;border-left:1px solid var(--border);border-right:1px solid var(--border)}
+  .draw .pct{font-size:1.6rem;font-weight:700;color:var(--muted)}
+  .draw .name{color:var(--muted);font-size:.85rem}
+  .bar{display:flex;height:14px;border-radius:999px;overflow:hidden;margin:6px 0 4px}
+  .bar span{display:block;height:100%}
+  .b-eng{background:#ff6b81}.b-x{background:#5c6a80}.b-arg{background:var(--arg)}
+  .legend{display:flex;justify-content:space-between;font-size:.8rem;color:var(--muted);margin-bottom:14px}
+  .pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .pill{background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:10px 14px;text-align:center;flex:1;min-width:110px}
+  .pill .v{font-size:1.15rem;font-weight:700}
+  .pill .l{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+  .callout{background:rgba(63,185,111,.08);border:1px solid rgba(63,185,111,.4);border-radius:10px;padding:14px 16px;margin-top:16px;font-size:.95rem}
+  footer{color:var(--muted);font-size:.8rem;text-align:center;margin-top:30px}
+  @media(max-width:600px){.draw{width:90px}.team .pct{font-size:1.7rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="tag">Semifinal · Copa do Mundo 2026 · 15/07 · 16h</div>
+  <h1>Inglaterra × Argentina</h1>
+  <p>Crítica do modelo v2.0 e palpite atualizado v3.0 (com dados de 3 edições do Football Manager)</p>
+</header>
+
+<!-- ============ CRÍTICA ============ -->
+<section>
+  <h2><span class="n">1</span>Crítica do modelo v2.0</h2>
+  <p>A arquitetura era sólida — Poisson bivariado com Dixon-Coles, shrinkage bayesiano, peso temporal, backtest rolling-origin sem vazamento e validação cruzada leave-one-team-out. O protocolo de validação foi reproduzido de forma independente e bateu com o reportado (log-loss out-of-sample 0,660 vs. 0,656, mesma assimetria entre folds). O problema não estava na validação, e sim em três pontos que ela não tinha poder para detectar com n=12:</p>
+
+  <div class="issue">
+    <b>① Erro de sinal no ajuste de força do adversário (crítico)</b>
+    O texto dizia "marcar em time forte vale mais", mas a fórmula <code>ataque_ajustado = gols / exp(β·(pontos_op − 1600))</code> faz o oposto: <em>desvaloriza</em> gols contra times fortes. Resultado: gols argentinos contra Jordânia (63ª) e Cabo Verde (67ª) foram inflacionados; gols ingleses contra Croácia (11ª) e México (14ª), deflacionados. É isso que explica o salto de 52,6% (M1) para 64,7% (M2) a favor da Argentina. Com o sinal correto, o efeito inverte: o M2 corrigido dá <b>~40% ARG</b>, não 64,7%.
+  </div>
+
+  <div class="issue warn">
+    <b>② Pontos FIFA interpolados</b>
+    10 dos 12 adversários tinham pontuação <em>estimada por rank</em>, não oficial — a variável central do ajuste era, em sua maior parte, um chute educado.
+  </div>
+
+  <div class="issue warn">
+    <b>③ Prior fraco no shrinkage</b>
+    O prior bayesiano vinha da média do torneio deslocada pelos mesmos pontos FIFA — nenhuma informação de elenco, calibrada em zero jogos.
+  </div>
+
+  <div class="verdict">
+    <div class="g"><b>Mantido</b>Arquitetura Poisson + Dixon-Coles, protocolo de backtest, temperagem e CV — tudo reaproveitado na v3.0.</div>
+    <div class="b"><b>Corrigido / substituído</b>Sinal do ajuste corrigido; pontos FIFA interpolados → força de elenco FM26; prior FIFA → prior calibrado em 128 jogos reais de Copa.</div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">2</span>O que a v3.0 acrescenta (bases FM15 · FM24 · FM26)</h2>
+  <p>As três bases (57,6 mil jogadores) viram força de elenco por seleção — melhor XI por rating (GK + 4 DEF + 4 MEI + 2 ATA), com índices separados de ataque e defesa. Duas melhorias entram no lugar dos pontos críticos acima:</p>
+  <p><b>Prior validado em duas Copas inteiras.</b> O Poisson <code>λ = exp(a + b·Δz)</code> foi calibrado com FM24 → Copa 2022 (64 jogos) e FM15 → Copa 2014 (64 jogos): <code>a = 0,211</code>, <code>b = 0,236</code>, estável em validação cruzada entre as duas edições. <b>Força do adversário medida, não interpolada:</b> z-scores de ataque/defesa do FM26 sobre os 48 classificados.</p>
+  <table>
+    <tr><th>Backtest (12 jogos de 2026, rolling-origin)</th><th>Log-loss ↓</th><th>RPS ↓</th><th>Brier ↓</th><th>CV out-of-sample</th></tr>
+    <tr><td>M0 — baseline fixo</td><td class="num">1,015</td><td class="num">0,255</td><td class="num">0,615</td><td class="num">—</td></tr>
+    <tr><td>M1 — médias brutas</td><td class="num">0,550</td><td class="num">0,098</td><td class="num">0,289</td><td class="num">—</td></tr>
+    <tr><td>M2 — FIFA corrigido</td><td class="num">0,564</td><td class="num">0,085</td><td class="num">0,271</td><td class="num">0,660</td></tr>
+    <tr class="hl"><td>M3 — FM (escolhido)</td><td class="num">0,488</td><td class="num">0,072</td><td class="num">0,238</td><td class="num">0,551</td></tr>
+  </table>
+  <p class="muted">M3 vence nas três métricas e no out-of-sample (−17% de log-loss vs. M2). Calibração: confiança média 70,4% × acerto real 91,7% (subconfiante — o lado certo do erro com n=12). Sensibilidade: variando β de 0 a 0,3, a semifinal fica entre ENG 34–42% / ARG 33–40% — a conclusão de jogo equilibrado é robusta.</p>
+</section>
+
+<!-- ============ PALPITE ============ -->
+<section>
+  <h2><span class="n">3</span>Palpite atualizado (v3.0)</h2>
+
+  <div class="scoreboard">
+    <div class="team eng"><div class="name">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra</div><div class="pct">35,8%</div></div>
+    <div class="draw"><div class="name">Empate</div><div class="pct">28,9%</div></div>
+    <div class="team arg"><div class="name">🇦🇷 Argentina</div><div class="pct">35,2%</div></div>
+  </div>
+  <div class="bar"><span class="b-eng" style="width:35.8%"></span><span class="b-x" style="width:28.9%"></span><span class="b-arg" style="width:35.2%"></span></div>
+  <div class="legend"><span>Tempo regulamentar · ensemble M3 + mercado 50/50</span><span>quase insensível ao peso do ensemble (ARG 33,7–36,8%)</span></div>
+
+  <div class="pills">
+    <div class="pill"><div class="v">1×1</div><div class="l">Placar mais provável · 11,3%</div></div>
+    <div class="pill"><div class="v">1×2</div><div class="l">2º · 8,8%</div></div>
+    <div class="pill"><div class="v">2×1</div><div class="l">3º · 7,9%</div></div>
+    <div class="pill"><div class="v">1,5 × 1,6</div><div class="l">xG ENG × ARG</div></div>
+    <div class="pill"><div class="v">52–53%</div><div class="l">ARG classificada (pror./pên. via Elo)</div></div>
+  </div>
+
+  <table>
+    <tr><th>Fonte</th><th>Inglaterra</th><th>Empate</th><th>Argentina</th></tr>
+    <tr><td>M1 — médias brutas</td><td class="num">32,2%</td><td class="num">22,0%</td><td class="num">45,8%</td></tr>
+    <tr><td>M2 corrigido (FIFA)</td><td class="num">31,8%</td><td class="num">25,5%</td><td class="num">42,7%</td></tr>
+    <tr><td>M3 (FM)</td><td class="num">35,7%</td><td class="num">25,2%</td><td class="num">39,2%</td></tr>
+    <tr><td>Mercado (SportRadar)</td><td class="num">36,0%</td><td class="num">32,7%</td><td class="num">31,3%</td></tr>
+    <tr class="hl"><td>Ensemble M3 + mercado</td><td class="num">35,8%</td><td class="num">28,9%</td><td class="num">35,2%</td></tr>
+  </table>
+
+  <p><b>Por que a Argentina perdeu o favoritismo de 62%:</b> corrigido o sinal, os gols ingleses contra Croácia, México e Noruega passam a valer mais e os argentinos contra Jordânia e Cabo Verde, menos; o FM26 avalia o elenco inglês acima do argentino (overall 89,4 × 87,7; ataque 89,8 × 88,5; defesa 87,9 × 86,5); a favor da Argentina restam a campanha (6 vitórias, +11 de saldo) e o ranking FIFA live — suficiente para uma vantagem apenas ligeira na classificação.</p>
+
+  <div class="callout">⚖️ <b>Leitura final:</b> jogo de moeda com leve inclinação argentina na classificação (52–53%). O 62% × 38% da v2.0 era, em grande parte, artefato do erro de sinal — não sinal do jogo.</div>
+</section>
+
+<section>
+  <h2><span class="n">4</span>Limitações</h2>
+  <p class="muted">n=12 segue minúsculo para o backtest de 2026 (o argumento forte do M3 é o prior validado em 128 jogos, não o backtest local) · ratings FM são opinião dos scouts do jogo, congelada no lançamento de cada edição (sem forma atual, lesões ou convocação real) · datas de mata-mata aproximadas em ±1 dia (efeito desprezível com half-life 56d) · peso 50/50 do ensemble segue não-validável, mas a sensibilidade a ele é mínima.</p>
+</section>
+
+<footer>Pipeline: model/01_clean.py · model/02_backtest.py · model/15_semi_eng_arg.py — gerado em 15/07/2026</footer>
+</div>
+</body>
+</html>
