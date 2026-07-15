@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Semifinal — Inglaterra x Argentina | Análise</title>
+<title>Semifinal — Inglaterra x Argentina | Modelo Preditivo v2</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --grama-escura:#0E3B24;
@@ -17,6 +17,7 @@
     --argentina:#6CACE4;
     --ouro:#E8C46A;
     --linha:rgba(242,240,233,.22);
+    --painel:rgba(0,0,0,.24);
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -30,182 +31,115 @@
     min-height:100vh;
     line-height:1.6;
   }
-  .campo{max-width:920px;margin:0 auto;padding:0 24px 80px}
-
-  /* ---------- HERO ---------- */
-  header{
-    text-align:center;
-    padding:64px 0 40px;
-    border-bottom:2px solid var(--linha);
-    position:relative;
-  }
+  .campo{max-width:940px;margin:0 auto;padding:0 24px 80px}
+  .mono{font-family:'IBM Plex Mono',monospace}
+ 
+  header{text-align:center;padding:60px 0 40px;border-bottom:2px solid var(--linha)}
   .eyebrow{
-    display:inline-block;
-    font-size:.78rem;
-    letter-spacing:.32em;
-    text-transform:uppercase;
-    color:var(--ouro);
-    border:1px solid var(--ouro);
-    padding:6px 18px;
-    border-radius:2px;
-    margin-bottom:28px;
+    display:inline-block;font-size:.78rem;letter-spacing:.32em;
+    text-transform:uppercase;color:var(--ouro);border:1px solid var(--ouro);
+    padding:6px 18px;border-radius:2px;margin-bottom:26px;
   }
-  .confronto{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:clamp(12px,4vw,36px);
-    flex-wrap:wrap;
-  }
+  .confronto{display:flex;align-items:center;justify-content:center;gap:clamp(12px,4vw,36px);flex-wrap:wrap}
   .time-nome{
-    font-family:'Anton',sans-serif;
-    font-size:clamp(2.2rem,7vw,4.6rem);
-    text-transform:uppercase;
-    letter-spacing:.02em;
-    line-height:1;
+    font-family:'Anton',sans-serif;font-size:clamp(2rem,6.5vw,4.2rem);
+    text-transform:uppercase;line-height:1;color:#fff;padding-bottom:8px;
   }
-  .time-nome.eng{color:#fff;text-shadow:0 0 0 transparent;border-bottom:6px solid var(--inglaterra);padding-bottom:8px}
-  .time-nome.arg{color:#fff;border-bottom:6px solid var(--argentina);padding-bottom:8px}
-  .versus{
-    font-family:'Anton',sans-serif;
-    font-size:clamp(1.1rem,3vw,1.6rem);
-    color:var(--giz-fraco);
-  }
-  .kickoff{
-    margin-top:26px;
-    font-size:.95rem;
-    color:var(--giz-fraco);
-  }
+  .time-nome.eng{border-bottom:6px solid var(--inglaterra)}
+  .time-nome.arg{border-bottom:6px solid var(--argentina)}
+  .versus{font-family:'Anton',sans-serif;font-size:clamp(1rem,3vw,1.5rem);color:var(--giz-fraco)}
+  .kickoff{margin-top:24px;font-size:.95rem;color:var(--giz-fraco)}
   .kickoff strong{color:var(--giz);font-weight:600}
-
-  /* ---------- BARRA DE PROBABILIDADE (assinatura) ---------- */
+  .versao{margin-top:10px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ouro)}
+ 
   section{padding:52px 0;border-bottom:2px solid var(--linha)}
-  h2{
-    font-family:'Anton',sans-serif;
-    font-size:clamp(1.3rem,3.4vw,1.9rem);
-    text-transform:uppercase;
-    letter-spacing:.05em;
-    margin-bottom:8px;
-  }
-  .sub{color:var(--giz-fraco);font-size:.92rem;margin-bottom:32px}
-
+  h2{font-family:'Anton',sans-serif;font-size:clamp(1.3rem,3.4vw,1.8rem);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+  .sub{color:var(--giz-fraco);font-size:.92rem;margin-bottom:30px}
+  p{max-width:70ch}
+ 
   .territorio{
-    position:relative;
-    height:72px;
-    border:2px solid var(--giz);
-    border-radius:4px;
-    display:flex;
-    overflow:hidden;
-    background:rgba(0,0,0,.18);
+    position:relative;height:72px;border:2px solid var(--giz);border-radius:4px;
+    display:flex;overflow:hidden;background:var(--painel);
   }
-  .faixa{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    gap:2px;
-    transition:flex-basis 1.2s ease;
-  }
-  @media (prefers-reduced-motion:reduce){.faixa{transition:none}}
+  .faixa{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:2px}
   .faixa .pct{font-family:'Anton',sans-serif;font-size:1.35rem;line-height:1}
-  .faixa .rot{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
-  .f-eng{background:var(--inglaterra);flex-basis:36%}
-  .f-emp{background:transparent;flex-basis:32.7%;color:var(--giz)}
-  .f-arg{background:var(--argentina);color:#0B2237;flex-basis:31.3%}
-  /* círculo central de giz sobre a zona de empate */
-  .f-emp{position:relative}
-  .f-emp::before{
-    content:"";
-    position:absolute;
-    inset:8px auto 8px 50%;
-    width:56px;
-    transform:translateX(-50%);
-    border:2px solid var(--linha);
-    border-radius:50%;
-    aspect-ratio:1/1;
-    top:50%;
-    translate:0 -50%;
-    height:56px;
-    inset:auto;
-    left:50%;
-    transform:translate(-50%,0);
-    top:6px;
+  .faixa .rot{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;opacity:.85}
+  .f-eng{background:var(--inglaterra);flex-basis:26.2%}
+  .f-emp{background:transparent;flex-basis:25.8%;color:var(--giz)}
+  .f-arg{background:var(--argentina);color:#0B2237;flex-basis:48%}
+  .legenda-territorio{display:flex;justify-content:space-between;margin-top:12px;font-size:.8rem;color:var(--giz-fraco)}
+ 
+  .antes-depois{
+    display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:36px;
   }
-  .legenda-territorio{
-    display:flex;
-    justify-content:space-between;
-    margin-top:14px;
-    font-size:.8rem;
-    color:var(--giz-fraco);
+  @media (max-width:640px){.antes-depois{grid-template-columns:1fr}}
+  .cartao{
+    background:var(--painel);border:1px solid var(--linha);border-radius:6px;padding:20px 22px;
   }
-  .nota-prob{margin-top:22px;font-size:.9rem;color:var(--giz-fraco)}
-
-  /* ---------- CAMPANHAS ---------- */
-  .campanhas{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
+  .cartao h4{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--giz-fraco);margin-bottom:12px}
+  .cartao .linha-prob{display:flex;justify-content:space-between;font-size:.95rem;padding:5px 0;border-bottom:1px dashed var(--linha)}
+  .cartao .linha-prob:last-child{border-bottom:none}
+  .cartao .linha-prob strong{font-family:'IBM Plex Mono',monospace;font-weight:600}
+  .cartao.destaque-arg{border-color:var(--ouro)}
+  .cartao.destaque-arg h4{color:var(--ouro)}
+ 
+  .stats-finais{display:flex;gap:20px;flex-wrap:wrap;margin-top:32px}
+  .stat{flex:1;min-width:150px;background:var(--painel);border:1px solid var(--linha);border-radius:6px;padding:18px;text-align:center}
+  .stat .n{font-family:'Anton',sans-serif;font-size:1.6rem;display:block;color:var(--ouro)}
+  .stat .l{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--giz-fraco)}
+ 
+  .passos{counter-reset:passo;margin-top:8px}
+  .passo{
+    display:flex;gap:18px;padding:18px 0;border-bottom:1px dashed var(--linha);
   }
-  @media (max-width:680px){.campanhas{grid-template-columns:1fr}}
-  .campanha h3{
-    font-family:'Anton',sans-serif;
-    font-size:1.15rem;
-    text-transform:uppercase;
-    letter-spacing:.06em;
-    padding-bottom:10px;
-    margin-bottom:18px;
+  .passo:last-child{border-bottom:none}
+  .passo::before{
+    counter-increment:passo;content:counter(passo,decimal-leading-zero);
+    font-family:'Anton',sans-serif;font-size:1.4rem;color:var(--ouro);min-width:44px;
   }
-  .campanha.eng h3{border-bottom:4px solid var(--inglaterra)}
-  .campanha.arg h3{border-bottom:4px solid var(--argentina)}
-  .jogo{
-    display:flex;
-    justify-content:space-between;
-    align-items:baseline;
-    padding:10px 0;
-    border-bottom:1px dashed var(--linha);
-    font-size:.94rem;
+  .passo h5{font-size:1rem;font-weight:700;margin-bottom:4px}
+  .passo p{font-size:.92rem;color:var(--giz-fraco);max-width:62ch}
+  .passo p strong{color:var(--giz)}
+ 
+  table{width:100%;border-collapse:collapse;background:var(--painel);border:1px solid var(--linha);border-radius:6px;overflow:hidden;font-size:.92rem}
+  th,td{padding:12px 14px;text-align:left}
+  th{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--giz-fraco);border-bottom:2px solid var(--linha)}
+  td{border-bottom:1px dashed var(--linha)}
+  tr:last-child td{border-bottom:none}
+  td.num{font-family:'IBM Plex Mono',monospace}
+  tr.vencedor td{color:var(--ouro);font-weight:600}
+  .nota-tabela{font-size:.8rem;color:var(--giz-fraco);margin-top:12px}
+ 
+  .alerta{
+    border-left:4px solid var(--inglaterra);padding:16px 22px;background:var(--painel);
+    border-radius:0 4px 4px 0;margin-top:28px;max-width:70ch;
   }
-  .jogo:last-child{border-bottom:none}
-  .jogo .fase{color:var(--giz-fraco);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;min-width:88px}
-  .jogo .placar{font-family:'Anton',sans-serif;font-size:1.05rem;letter-spacing:.04em}
-  .resumo-num{
-    display:flex;
-    gap:28px;
-    margin-top:20px;
-    padding-top:16px;
-    border-top:2px solid var(--linha);
-  }
-  .resumo-num div{flex:1;text-align:center}
-  .resumo-num .n{font-family:'Anton',sans-serif;font-size:1.7rem;display:block}
-  .resumo-num .l{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--giz-fraco)}
-
-  /* ---------- LEITURA ---------- */
-  .leitura p{max-width:68ch;margin-bottom:18px;font-size:1rem}
-  .leitura p strong{color:var(--ouro);font-weight:600}
+  .alerta p{margin:0;font-size:.95rem;color:var(--giz-fraco)}
+  .alerta p strong{color:var(--giz)}
   .destaque{
-    border-left:4px solid var(--ouro);
-    padding:16px 22px;
-    background:rgba(0,0,0,.22);
-    border-radius:0 4px 4px 0;
-    margin-top:28px;
-    max-width:68ch;
+    border-left:4px solid var(--ouro);padding:16px 22px;background:var(--painel);
+    border-radius:0 4px 4px 0;margin-top:28px;max-width:70ch;
   }
-  .destaque p{margin:0;font-size:1.02rem}
-
-  footer{
-    padding-top:36px;
-    text-align:center;
-    font-size:.78rem;
-    color:var(--giz-fraco);
-    letter-spacing:.06em;
+  .destaque p{margin:0;font-size:1rem}
+  .destaque strong{color:var(--ouro)}
+ 
+  .placares{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
+  .chip{
+    background:var(--painel);border:1px solid var(--linha);border-radius:6px;
+    padding:14px 18px;text-align:center;flex:1;min-width:110px;
   }
-
+  .chip .sc{font-family:'Anton',sans-serif;font-size:1.5rem;display:block}
+  .chip .pr{font-size:.78rem;color:var(--giz-fraco)}
+  .chip.top{border-color:var(--argentina)}
+  .chip.top .sc{color:var(--argentina)}
+ 
+  footer{padding-top:36px;text-align:center;font-size:.78rem;color:var(--giz-fraco);letter-spacing:.06em}
   :focus-visible{outline:3px solid var(--ouro);outline-offset:3px}
 </style>
 </head>
 <body>
 <div class="campo">
-
+ 
   <header>
     <span class="eyebrow">Copa do Mundo 2026 · Semifinal</span>
     <div class="confronto">
@@ -214,81 +148,177 @@
       <span class="time-nome arg">Argentina</span>
     </div>
     <p class="kickoff">Hoje, <strong>15 de julho · 16h</strong> (horário de Brasília)</p>
+    <p class="versao">Modelo preditivo v2 — calibrado e validado</p>
   </header>
-
-  <section aria-labelledby="prob">
-    <h2 id="prob">Território do jogo</h2>
-    <p class="sub">Probabilidades para o tempo regulamentar (90 minutos)</p>
-
-    <div class="territorio" role="img" aria-label="Inglaterra 36%, empate 32,7%, Argentina 31,3%">
-      <div class="faixa f-eng"><span class="pct">36%</span><span class="rot">Inglaterra</span></div>
-      <div class="faixa f-emp"><span class="pct">32,7%</span><span class="rot">Empate</span></div>
-      <div class="faixa f-arg"><span class="pct">31,3%</span><span class="rot">Argentina</span></div>
+ 
+  <!-- ============ 1. O QUE MUDOU + MODELO ESCOLHIDO ============ -->
+  <section aria-labelledby="mudancas">
+    <h2 id="mudancas">O que mudou no modelo</h2>
+    <p class="sub">Da média simples de gols ao Poisson ajustado — quatro melhorias sobre a análise original</p>
+ 
+    <p style="margin-bottom:16px">A primeira análise usava apenas as <strong>médias brutas de gols</strong> das duas seleções no torneio — um modelo que ignora contra quem os gols foram marcados e quando. A versão 2 corrige isso com quatro camadas:</p>
+ 
+    <div class="passos">
+      <div class="passo">
+        <div>
+          <h5>Ajuste por força do adversário</h5>
+          <p>Cada gol é ponderado pelos <strong>pontos FIFA do oponente</strong>: marcar na Suíça (19ª) vale mais que marcar em Cabo Verde (67ª); sofrer gol do Panamá pesa mais que sofrer da França.</p>
+        </div>
+      </div>
+      <div class="passo">
+        <div>
+          <h5>Peso temporal</h5>
+          <p>Jogos recentes valem mais (decaimento exponencial): as quartas de final pesam mais que a estreia na fase de grupos, há um mês.</p>
+        </div>
+      </div>
+      <div class="passo">
+        <div>
+          <h5>Encolhimento bayesiano</h5>
+          <p>Com apenas 6 jogos por seleção, as taxas de gol são "puxadas" para a média do torneio — evita conclusões exageradas a partir de amostras pequenas.</p>
+        </div>
+      </div>
+      <div class="passo">
+        <div>
+          <h5>Correção Dixon-Coles + temperagem</h5>
+          <p>Infla a probabilidade de placares baixos e empates (típicos de mata-mata) e <strong>suaviza o excesso de confiança</strong> — problema detectado na primeira versão, que chegou a prever ~100% de vitória num jogo que terminou 0×0.</p>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="destaque">
+      <p><strong>Modelo escolhido: ensemble 50/50</strong> entre o M2 calibrado (Poisson ajustado, validado com 35% de melhora sobre o baseline) e as probabilidades de mercado — que incorporam escalações, lesões e informações que a estatística pura não vê. Os checks completos estão na seção de validação, mais abaixo.</p>
+    </div>
+  </section>
+ 
+  <!-- ============ 2. PALPITE AJUSTADO ============ -->
+  <section aria-labelledby="palpite">
+    <h2 id="palpite">Palpite ajustado</h2>
+    <p class="sub">Ensemble: modelo estatístico calibrado (50%) + probabilidades de mercado (50%) — tempo regulamentar</p>
+ 
+    <div class="territorio" role="img" aria-label="Inglaterra 26,2%, empate 25,8%, Argentina 48%">
+      <div class="faixa f-eng"><span class="pct">26,2%</span><span class="rot">Inglaterra</span></div>
+      <div class="faixa f-emp"><span class="pct">25,8%</span><span class="rot">Empate</span></div>
+      <div class="faixa f-arg"><span class="pct">48%</span><span class="rot">Argentina</span></div>
     </div>
     <div class="legenda-territorio">
       <span>◂ campo inglês</span>
       <span>campo argentino ▸</span>
     </div>
-
-    <p class="nota-prob">Leitura: quase um cara ou coroa. A Inglaterra sai com vantagem mínima, e a zona de empate — que leva a decisão para prorrogação e pênaltis — é quase tão provável quanto qualquer vitória no tempo normal.</p>
+ 
+    <div class="antes-depois">
+      <div class="cartao">
+        <h4>Antes — mercado (SportRadar)</h4>
+        <div class="linha-prob"><span>Inglaterra</span><strong>36,0%</strong></div>
+        <div class="linha-prob"><span>Empate</span><strong>32,7%</strong></div>
+        <div class="linha-prob"><span>Argentina</span><strong>31,3%</strong></div>
+      </div>
+      <div class="cartao destaque-arg">
+        <h4>Depois — modelo M2 calibrado</h4>
+        <div class="linha-prob"><span>Inglaterra</span><strong>16,4%</strong></div>
+        <div class="linha-prob"><span>Empate</span><strong>18,8%</strong></div>
+        <div class="linha-prob"><span>Argentina</span><strong>64,7%</strong></div>
+      </div>
+    </div>
+ 
+    <div class="stats-finais">
+      <div class="stat"><span class="n">62% × 38%</span><span class="l">Classificação ARG × ENG</span></div>
+      <div class="stat"><span class="n">1,2 × 2,7</span><span class="l">Gols esperados ENG × ARG</span></div>
+      <div class="stat"><span class="n">ARG 2×1</span><span class="l">Placar mais provável</span></div>
+    </div>
+ 
+    <h2 style="margin-top:44px;font-size:1.1rem">Placares mais prováveis</h2>
+    <div class="placares">
+      <div class="chip top"><span class="sc">1×2</span><span class="pr">9,0%</span></div>
+      <div class="chip"><span class="sc">1×3</span><span class="pr">7,8%</span></div>
+      <div class="chip"><span class="sc">0×2</span><span class="pr">7,4%</span></div>
+      <div class="chip"><span class="sc">0×3</span><span class="pr">6,7%</span></div>
+      <div class="chip"><span class="sc">1×1</span><span class="pr">6,5%</span></div>
+    </div>
   </section>
-
-  <section aria-labelledby="camp">
-    <h2 id="camp">Caminho até a semifinal</h2>
-    <p class="sub">Resultados das duas seleções na Copa</p>
-
-    <div class="campanhas">
-      <div class="campanha eng">
-        <h3>Inglaterra</h3>
-        <div class="jogo"><span class="fase">Grupo</span><span>Croácia</span><span class="placar">4–2</span></div>
-        <div class="jogo"><span class="fase">Grupo</span><span>Gana</span><span class="placar">0–0</span></div>
-        <div class="jogo"><span class="fase">Grupo</span><span>Panamá</span><span class="placar">2–0</span></div>
-        <div class="jogo"><span class="fase">16 avos</span><span>RD Congo</span><span class="placar">2–1</span></div>
-        <div class="jogo"><span class="fase">Oitavas</span><span>México</span><span class="placar">3–2</span></div>
-        <div class="jogo"><span class="fase">Quartas</span><span>Noruega</span><span class="placar">2–1</span></div>
-        <div class="resumo-num">
-          <div><span class="n">5V 1E</span><span class="l">Campanha</span></div>
-          <div><span class="n">13</span><span class="l">Gols pró</span></div>
-          <div><span class="n">6</span><span class="l">Gols contra</span></div>
+ 
+  <!-- ============ 3. POR QUE O MODELO DISCORDA ============ -->
+  <section aria-labelledby="divergencia">
+    <h2 id="divergencia">Por que o modelo vê a Argentina como favorita?</h2>
+    <p class="sub">O modelo e o mercado discordam — e a divergência conta uma história</p>
+ 
+    <p style="margin-bottom:16px">O mercado dá leve favoritismo à Inglaterra (36%). O modelo estatístico, ajustado pela força dos adversários, inverte o cenário e aponta a Argentina com folga. Três fatores explicam:</p>
+ 
+    <div class="passos">
+      <div class="passo">
+        <div>
+          <h5>Ranking FIFA "live" superior</h5>
+          <p>A Argentina chega com <strong>1.943 pontos contra 1.889</strong> da Inglaterra no ranking ao vivo da FIFA — uma diferença de 54 pontos construída vencendo todos os 6 jogos.</p>
         </div>
       </div>
-
-      <div class="campanha arg">
-        <h3>Argentina</h3>
-        <div class="jogo"><span class="fase">Grupo</span><span>Argélia</span><span class="placar">3–0</span></div>
-        <div class="jogo"><span class="fase">Grupo</span><span>Áustria</span><span class="placar">2–0</span></div>
-        <div class="jogo"><span class="fase">Grupo</span><span>Jordânia</span><span class="placar">3–1</span></div>
-        <div class="jogo"><span class="fase">16 avos</span><span>Cabo Verde</span><span class="placar">3–2</span></div>
-        <div class="jogo"><span class="fase">Oitavas</span><span>Egito</span><span class="placar">3–2</span></div>
-        <div class="jogo"><span class="fase">Quartas</span><span>Suíça</span><span class="placar">3–1</span></div>
-        <div class="resumo-num">
-          <div><span class="n">6V 0E</span><span class="l">Campanha</span></div>
-          <div><span class="n">17</span><span class="l">Gols pró</span></div>
-          <div><span class="n">6</span><span class="l">Gols contra</span></div>
+      <div class="passo">
+        <div>
+          <h5>Ataque melhor mesmo descontando adversários fracos</h5>
+          <p>Os 17 gols argentinos são deflacionados no modelo quando marcados contra times fracos (Cabo Verde, Jordânia) — e ainda assim a taxa ofensiva ajustada supera a inglesa. O 3×1 sobre a <strong>Suíça (19ª do ranking)</strong> pesa muito.</p>
+        </div>
+      </div>
+      <div class="passo">
+        <div>
+          <h5>Caminho inglês mais fraco, margens mínimas</h5>
+          <p>A Inglaterra eliminou RD Congo (46ª), México (14ª) e Noruega (31ª) sempre por 1 gol de diferença. Vitórias apertadas contra adversários medianos <strong>rebaixam a força estimada</strong> quando ajustadas pelo ranking dos oponentes.</p>
         </div>
       </div>
     </div>
+ 
+    <div class="alerta">
+      <p><strong>O que o modelo não vê:</strong> escalações, lesões (Declan Rice voltando), arbitragem, tática e clima de jogo. O mercado incorpora isso — por isso o palpite final é a média entre os dois, e não o modelo puro.</p>
+    </div>
   </section>
-
-  <section aria-labelledby="leitura" class="leitura">
-    <h2 id="leitura">A leitura das estatísticas</h2>
-    <p class="sub">O que os números sugerem para hoje</p>
-
-    <p>A <strong>Argentina chega em melhor fase ofensiva</strong>: 100% de aproveitamento, seis vitórias em seis jogos e 17 gols marcados — quase 3 por partida. O sinal amarelo está na defesa no mata-mata: sofreu 2 gols de Cabo Verde e 2 do Egito, jogos que poderiam ter complicado.</p>
-
-    <p>A <strong>Inglaterra fez fase de grupos irregular</strong> (incluindo o 0–0 com Gana), mas cresceu quando a Copa apertou: eliminou RD Congo, México e Noruega sempre por um gol de diferença. Vitórias magras, porém consistentes — o perfil clássico de time que se sente confortável em jogo travado.</p>
-
-    <p>É exatamente esse contraste que explica a leve vantagem inglesa nas probabilidades: um ataque argentino avassalador contra uma Inglaterra que sabe sofrer e decidir nos detalhes.</p>
-
+ 
+  <!-- ============ 4. VALIDAÇÃO ============ -->
+  <section aria-labelledby="validacao">
+    <h2 id="validacao">Os checks: a melhoria foi real?</h2>
+    <p class="sub">Backtesting rolling-origin nos 12 jogos já disputados — cada previsão usa apenas dados anteriores ao jogo</p>
+ 
+    <table>
+      <thead>
+        <tr><th>Modelo</th><th>Log-loss ↓</th><th>RPS ↓</th><th>Melhora vs. baseline</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>M0 — baseline (probabilidades fixas)</td><td class="num">1,015</td><td class="num">0,255</td><td>—</td></tr>
+        <tr><td>M1 — Poisson, médias brutas (análise original)</td><td class="num">0,759</td><td class="num">0,157</td><td class="num">25%</td></tr>
+        <tr class="vencedor"><td>M2 — Poisson ajustado e calibrado</td><td class="num">0,656</td><td class="num">≈0,07</td><td class="num">35%</td></tr>
+      </tbody>
+    </table>
+    <p class="nota-tabela">Log-loss e RPS: quanto menor, melhor. Valores do M2 medidos <em>out-of-sample</em> — hiperparâmetros calibrados nos jogos de uma seleção e testados nos da outra (validação cruzada leave-one-team-out), sem vazamento de dados.</p>
+ 
+    <div class="passos" style="margin-top:28px">
+      <div class="passo">
+        <div>
+          <h5>Checagem de calibração</h5>
+          <p>Confiança média dos palpites: <strong>82%</strong> · Taxa de acerto real: <strong>92%</strong>. O modelo ficou levemente conservador — o lado certo para errar com amostra pequena.</p>
+        </div>
+      </div>
+      <div class="passo">
+        <div>
+          <h5>Problema detectado e corrigido</h5>
+          <p>A primeira versão do M2 melhorava as métricas sendo <strong>superconfiante</strong> (favoritos venceram 11 de 12 jogos nesta amostra). A temperagem das probabilidades corrigiu isso, confirmado na validação cruzada.</p>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="alerta">
+      <p><strong>Limitações honestas:</strong> 12 jogos é uma amostra minúscula — a margem de erro é grande. Pontos FIFA das seleções menores foram interpolados a partir do rank oficial. O peso do ensemble (50/50) não pôde ser validado por falta de probabilidades históricas do mercado. Com esses dados, a diferença entre 48% e 40% para a Argentina é ruído estatístico.</p>
+    </div>
+  </section>
+ 
+  <!-- ============ 5. CONCLUSÃO ============ -->
+  <section aria-labelledby="conclusao" style="border-bottom:none;padding-bottom:20px">
+    <h2 id="conclusao">Leitura final</h2>
     <div class="destaque">
-      <p><strong>Expectativa:</strong> jogo equilibrado e provavelmente decidido por detalhes — bola parada, um lance individual ou os pênaltis. Se a Argentina impuser seu ritmo ofensivo cedo, o favoritismo vira; se o jogo travar, o cenário sorri para a Inglaterra.</p>
+      <p><strong>Argentina favorita (48% no tempo normal, 62% de classificação)</strong>, com o 2×1 como placar mais provável. Mas a Inglaterra vive de jogo travado decidido por detalhe — se o duelo emperrar, o empate (26%) leva tudo para prorrogação e pênaltis, onde qualquer modelo vira palpite.</p>
     </div>
   </section>
-
+ 
   <footer>
-    Probabilidades e resultados: dados oficiais da competição · Análise gerada em 15/07/2026
+    Dados: resultados oficiais da Copa 2026 · Ranking FIFA (11/jun e live 15/jul) · Probabilidades de mercado SportRadar<br>
+    Modelo: Poisson bivariado com ajuste de força, Dixon-Coles e validação cruzada · Gerado em 15/07/2026
   </footer>
-
+ 
 </div>
 </body>
 </html>
